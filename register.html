@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Beachly - Login</title>
+    <meta charset="utf-8">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Google fonts CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah&display=swap" rel="stylesheet">
+    <!-- Font Awesome CSS -->
+    <script src="https://kit.fontawesome.com/d974e5062b.js" crossorigin="anonymous"></script>
+    <!-- Icon of page -->
+    <link href="images/favicon.ico" rel="icon">
+
+
+    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet" />
+    <!-- responsive style -->
+    <link href="css/responsive.css" rel="stylesheet" />
+</head>
+
+<body id="body" style=" background-image: linear-gradient(purple, blue);">
+    <video autoplay muted loop id="myVideo">
+        <source src="video/World Cup Qatar 2022 Promo.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
+
+    <section class="login">
+        <div class="loginCard m-4">
+            <form id="formRegister">
+                <h3>Regista a tua conta</h3>
+                <div class="form-group">
+                    <label class="input">
+                        <span>Username </span>
+                        <input id="username" class="input" type="teste" placeholder="Enter your username or email"
+                            required />
+                    </label>
+                    <label class="input">
+                        <span>Email</span>
+                        <input id="email" class="input" type="email" placeholder="Enter your username or email" required />
+                    </label>
+                    <label class="input">
+                        <span>Password</span>
+                        <div class="input">
+                            <input id="password" type="password" placeholder="Enter your password" required />
+                            <button type="button" id="btn_eye" class="far fa-eye-slash" onclick="changeInputType()"></button>
+                        </div>
+                    </label>
+                    <div class="footer">
+                        <p id="error_msg" class="error_msg"></p>                   
+                    </div>
+                </div>
+                <div id="loader" class="spinner" style="width: 10px; height: 60px;transform: scale(0.7); display: none;">
+                    <div class="circle one"></div>
+                    <div class="circle two"></div>
+                    <div class="circle three"></div>
+                </div>
+                <a id="registerForm" class="btn btn-primary w-100">Registar</a>
+            </form>
+        </div>
+    </section>
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+<script src="js/firebase.js"></script>
+
+<script>
+    function changeInputType() {
+        var x = document.getElementById("password");
+        let eye = document.getElementById("btn_eye");
+        if (x.type === "password") {
+            x.type = "text";
+            eye.classList.remove("fa-eye-slash");
+            eye.classList.add("fa-eye");
+        } else {
+            x.type = "password";
+            eye.classList.remove("fa-eye");
+            eye.classList.add("fa-eye-slash");
+        }
+    }
+</script>
+
+<script type="text/javascript">
+    var opacity = 0;
+    var intervalID = 0;
+    // window.onload = fadeIn;
+
+    function fadeIn() {
+        setInterval(show, 100);
+    }
+
+    function show() {
+        var body = document.getElementById("body");
+        opacity = Number(body.style.opacity);
+        if (opacity < 1) {
+            opacity = opacity + 0.1;
+            body.style.opacity = opacity;
+        } else {
+            clearInterval(intervalID);
+        }
+    }
+</script>
+
+</html>

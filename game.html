@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>WorldCup Competition</title>
+    <!-- Favicon -->
+    <link href="images/favicon.ico" rel="icon">
+
+    <!-- Basic -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!-- Site Metas -->
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+
+    <!-- slider stylesheet -->
+    <!-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css" /> -->
+    <!-- Bootstrap CSS -->
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet" />
+    <!-- responsive style -->
+    <link href="css/responsive.css" rel="stylesheet" />
+    <!-- bar test -->
+    <link href="css/bargraph.css" rel="stylesheet" />
+    <!-- game -->
+    <link href="css/game.css" rel="stylesheet" />
+
+</head>
+
+<body>
+    <div class="hero_area">
+        <header class="header_section">
+            <div class="container-fluid">
+                <nav>
+                    <div class="logo">
+                        <img src="images/2022_FIFA_World_Cup.png" alt="Logo Image">
+                    </div>
+                    <div class="hamburger">
+                        <div class="line1"></div>
+                        <div class="line2"></div>
+                        <div class="line3"></div>
+                    </div>
+                    <ul class="nav-links">
+                        <li><a href="home.html">Jogos</a></li>
+                        <li><a href="classification.html">Pontuações</a></li>
+                        <li><a href="rules.html">Regras</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <div class="hero_section ">
+            <div class="hero_detail">
+                <!-- <p id="demo"></p> -->
+                <div class="header">
+                    <div class="score-board">
+                        <div class="home">
+                            <div><img class="team-img" src="images/Countries/Qatar.png"></div>
+                            <div><span id="home_team">Qatar</span></div>
+                        </div>
+                        <div id="info">
+                            <div class="match-info">Nov 20 (Dom) 16:00</div>
+                        </div>
+                        <div class="away">
+                            <div><img class="team-img" src="images/Countries/Equador.png"></div>
+                            <div><span id="away_team">Equador</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+    <section id="bar_section">
+        <div id="bar-chart">
+            <div class="graph">
+                <ul id="x-axis" class="x-axis">
+                    <!-- <li><span>2010</span></li>
+                    <li><span>2012</span></li>
+                    <li><span>2013</span></li>
+                    <li><span>2014</span></li>
+                    <li><span>2015</span></li> -->
+                </ul>
+                <ul id="y-axis" class="y-axis">
+                    <!-- <li><span>20</span></li>
+                    <li><span>15</span></li>
+                    <li><span>10</span></li>
+                    <li><span>5</span></li>
+                    <li><span>0</span></li> -->
+                </ul>
+                <div id="bars" class="bars">
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="table_section">
+       
+    </section>
+
+
+    <section id="loader" class="spinner">
+        <div class="circle one"></div>
+        <div class="circle two"></div>
+        <div class="circle three"></div>
+    </section>
+
+
+    <footer class="footer">
+        <div class="footer-left col-md-4 col-sm-6">
+            <p class="about">
+                <span> Sobre nós </span>
+                Este site é dedicado àqueles que atualmente perdem dinheiro em sites de apostas tradicionais. A nossa
+                esperança é fornecer-vos as ferramentas necessárias para pararem de perder o vosso dinheiro em apostas
+                sem perder a adrenalina de prever os resultados deste mundial, numa competição entre amigos. Boa sorte a
+                todos os participantes e que vença o mais sortudo.
+            </p>
+        </div>
+        <div class="footer-center col-md-4 col-sm-6">
+            <div>
+                <i class="fa fa-map-marker"></i>
+                <p><span> Av. da Igreja, 14A </span> Lisboa, Portugal</p>
+            </div>
+            <div>
+                <i class="fa fa-phone"></i>
+                <p> (+351) 218 461 081</p>
+            </div>
+            <div>
+                <i class="fa fa-envelope"></i>
+                <p><a href="https://s3.amazonaws.com/thumbnails.illustrationsource.com/huge.0.3917.JPG">
+                        amigos.que@mtudo.pt </a></p>
+            </div>
+        </div>
+        <div class="footer-right col-md-4 col-sm-6">
+            <h2> World Cup<span> Competition</span></h2>
+            <p class="menu">
+                <a href="home.html">Jogos</a> |
+                <a href="classification.html">Pontuações</a> |
+                <a href="rules.html">Regras</a> |
+                <a href="#" onclick="logOut();">Sair</a>
+            </p>
+            <p class="name"> &copy; 2022 All Rights Reserved By VCLF INC.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+    <script src="js/firebase.js"></script>
+    <script src="js/general.js"></script>
+
+    <!-- <script>
+        // Set the date we're counting down to
+        var countDownDate = new Date("Jan 3, 2023 15:37:25").getTime();
+
+        // Update the count down every 1 second
+        var x = setInterval(function () {
+
+            // Get today's date and time
+            var now = new Date().getTime();
+
+            // Find the distance between now and the count down date
+            var distance = countDownDate - now;
+
+            // Time calculations for days, hours, minutes and seconds
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Display the result in the element with id="demo"
+            if (days > 0) {
+                document.getElementById("demo").innerHTML = days + "d " + hours + "h ";
+            }
+            else {
+                document.getElementById("demo").innerHTML = hours + "h " + minutes + "m " + seconds + "s ";
+
+            }
+
+            // If the count down is finished, write some text
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("demo").innerHTML = "EXPIRED";
+            }
+        }, 1000);
+    </script> -->
+
+</body>
+
+</html>
