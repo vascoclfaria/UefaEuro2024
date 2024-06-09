@@ -1,0 +1,576 @@
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Fade</title>
+    <link rel="stylesheet" href="css/test.css">
+</head>
+<body>
+<nav class="navbar navbar-expand-custom navbar-mainbg">
+    <a class="navbar-brand navbar-logo" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars text-white"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+            <div class="hori-selector"><div class="left"></div><div class="right"></div></div>
+            <li class="nav-item">
+                <a class="nav-link" onclick="test(this)" href="javascript:void(0);"><i class="fas fa-tachometer-alt"></i>Dashboard</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="javascript:void(0);"><i class="far fa-address-book"></i>Address Book</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="javascript:void(0);"><i class="far fa-clone"></i>Components</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="javascript:void(0);"><i class="far fa-calendar-alt"></i>Calendar</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="javascript:void(0);"><i class="far fa-chart-bar"></i>Charts</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="javascript:void(0);"><i class="far fa-copy"></i>Documents</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="image-container">
+    <div class="image image1"></div>
+    <div class="image image2"></div>
+</div>
+
+<script>
+    function test(e){
+        e.parentNode.classList.add('active');
+    }
+</script>
+</body>
+</html>-->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>skew</title>
+    <style>
+        /*@import url(https://fonts.googleapis.com/css?family=Varela+Round);
+        body {
+            background: #f5f5f5;
+        }
+        .container {
+            position: absolute;
+            width: 100%;
+            heigh: 100%;
+            text-align: center;
+            top: 40%;
+            left: 0;
+            margin: 0 auto;
+            font-family: 'Varela Round', sans-serif;
+        }
+        .container p {
+            font-size: 20px;
+        }
+        .container a {
+            display: inline-block;
+            position: relative;
+            text-align: center;
+            color: #1abc9c;
+            text-decoration: none;
+            font-size: 20px;
+            overflow: hidden;
+            top: 5px;
+        }
+        .container a:after {
+            content: '';
+            position: absolute;
+            background: #1abc9c;
+            height: 2px;
+            width: 0%;
+            transform: translateX(-50%);
+            left: 50%;
+            bottom: 0;
+            transition: 0.35s ease;
+        }
+        .container a:hover:after, .container a:focus:after, .container a:active:after {
+            width: 100%;
+        }
+        h1 {
+            position: relative;
+            text-align: center;
+            font-family: 'Varela Round', serif;
+        }
+        .button_container {
+            position: fixed;
+            top: 5%;
+            right: 2%;
+            height: 27px;
+            width: 35px;
+            cursor: pointer;
+            z-index: 100;
+            transition: opacity 0.25s ease;
+        }
+        .button_container:hover {
+            opacity: 0.7;
+        }
+        .button_container.active .top {
+            transform: translateY(11px) translateX(0) rotate(45deg);
+            background: #fff;
+        }
+        .button_container.active .middle {
+            opacity: 0;
+            background: #fff;
+        }
+        .button_container.active .bottom {
+            transform: translateY(-11px) translateX(0) rotate(-45deg);
+            background: #fff;
+        }
+        .button_container span {
+            background: #1abc9c;
+            border: none;
+            height: 5px;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: all 0.35s ease;
+            cursor: pointer;
+        }
+        .button_container span:nth-of-type(2) {
+            top: 11px;
+        }
+        .button_container span:nth-of-type(3) {
+            top: 22px;
+        }
+        .overlay {
+            position: fixed;
+            background: #1abc9c;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 0%;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.35s, visibility 0.35s, height 0.35s;
+            overflow: hidden;
+        }
+        .overlay.open {
+            opacity: 0.9;
+            visibility: visible;
+            height: 100%;
+        }
+        .overlay.open li {
+            animation: fadeInRight 0.5s ease forwards;
+            animation-delay: 0.35s;
+        }
+        .overlay.open li:nth-of-type(2) {
+            animation-delay: 0.4s;
+        }
+        .overlay.open li:nth-of-type(3) {
+            animation-delay: 0.45s;
+        }
+        .overlay.open li:nth-of-type(4) {
+            animation-delay: 0.5s;
+        }
+        .overlay nav {
+            position: relative;
+            height: 70%;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 50px;
+            font-family: 'Varela Round', serif;
+            font-weight: 400;
+            text-align: center;
+        }
+        .overlay ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 auto;
+            display: inline-block;
+            position: relative;
+            height: 100%;
+        }
+        .overlay ul li {
+            display: block;
+            height: 25%;
+            height: calc(100% / 4);
+            min-height: 50px;
+            position: relative;
+            opacity: 0;
+        }
+        .overlay ul li a {
+            display: block;
+            position: relative;
+            color: #fff;
+            text-decoration: none;
+            overflow: hidden;
+        }
+        .overlay ul li a:hover:after, .overlay ul li a:focus:after, .overlay ul li a:active:after {
+            width: 100%;
+        }
+        .overlay ul li a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0%;
+            transform: translateX(-50%);
+            height: 3px;
+            background: #fff;
+            transition: 0.35s;
+        }
+        @keyframes fadeInRight {
+            0% {
+                opacity: 0;
+                left: 20%;
+            }
+            100% {
+                opacity: 1;
+                left: 0;
+            }
+        }
+
+        @import url('https://fonts.googleapis.com/css?family=Mukta:700');
+        button {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+            outline: none;
+            border: 0;
+            vertical-align: middle;
+            text-decoration: none;
+            background: transparent;
+            padding: 0;
+            font-size: inherit;
+            font-family: inherit;
+        }
+        button.signout_btn {
+            width: 12rem;
+            height: auto;
+        }
+        button.signout_btn .circle {
+            transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+            position: relative;
+            display: block;
+            margin: 0;
+            width: 3rem;
+            height: 3rem;
+            background: #282936;
+            border-radius: 1.625rem;
+        }
+        button.signout_btn .circle .icon {
+            transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            background: #fff;
+        }
+        button.signout_btn .circle .icon.arrow {
+            transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+            left: 0.625rem;
+            width: 1.125rem;
+            height: 0.125rem;
+            background: none;
+        }
+        button.signout_btn .circle .icon.arrow::before {
+            position: absolute;
+            content: '';
+            top: -0.25rem;
+            right: 0.0625rem;
+            width: 0.625rem;
+            height: 0.625rem;
+            border-top: 0.125rem solid #fff;
+            border-right: 0.125rem solid #fff;
+            transform: rotate(45deg);
+        }
+        button.signout_btn .button-text {
+            transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            padding: 0.75rem 0;
+            margin: 0 0 0 1.85rem;
+            color: #282936;
+            font-weight: 700;
+            line-height: 1.6;
+            text-align: center;
+            text-transform: uppercase;
+        }
+        button:hover .circle {
+            width: 100%;
+        }
+        button:hover .circle .icon.arrow {
+            background: #fff;
+            transform: translate(1rem, 0);
+        }
+        button:hover .button-text {
+            color: #fff;
+        }*/
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+        }
+        .chart {
+            width: 100%;
+            height: 100%;
+            padding: 10%;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="chart" class="chart"></div>
+
+    <script>
+        let circularGraph = {
+            title: "标题",
+            head: false,
+            tuglie: ["微信", "支付宝", "银行卡"],
+            data: [
+                {
+                    name: "微信",
+                    value: 22
+                },
+                {
+                    name: "支付宝",
+                    value: 26
+                },
+                {
+                    name: "银行卡",
+                    value: 44
+                }
+            ],
+            sum: {
+                name: ["支付笔数"]
+                //number: 341,
+            },
+            color: [
+                "#9F9BFF",
+                "#FF6465",
+                "#36F2F2",
+                "#2E4D90",
+                "#FC38A4",
+                "#F87930",
+                "#59FD29",
+                "#5FD879"
+            ]
+        };
+
+        let option = {
+            title: {
+                text: circularGraph.title, //标题文本
+                left: "center",
+                show: circularGraph.head //是否显示标题组件
+            },
+            grid: {
+                left: "3%",
+                right: "4%",
+                bottom: "3%",
+                containLabel: true
+            },
+            tooltip: {
+                trigger: "item",
+                formatter: "{b}: {d}%"
+                //   formatter: "{b}: {c} ({d}%)",
+            },
+            legend: {
+                show: true,
+                orient: "visualMap", //图例水平对齐排列
+                x: "right",
+                y: "center",
+                padding: [0, 20, 0, 0],
+                textStyle: {
+                    //图例文字的样式
+                    color: "#333",
+                    fontSize: 12
+                },
+                data: circularGraph.tuglie, //图例组件
+                formatter: (name) => {
+                    let num = "";
+                    circularGraph.data.forEach((item) => {
+                        //格式化图例文本，支持字符串模板和回调函数两种形式。
+                        if (item.name === name) {
+                            num = String(item.value).replace(/(\d)(?=(?:\d{6})+$)/g, "$1.");
+                            return;
+                        }
+                    });
+                    return name + "：" + num;
+                }
+            },
+            graphic: {
+                type: "text",
+                left: "center",
+                //left: '37%',
+                top: "center",
+                style: {
+                    text:
+                        circularGraph.sum.name + //圆饼中心显示数据，这里是显示得总数
+                        "\n\n" +
+                        String(
+                            //遍历循环计算总和
+                            circularGraph.data.reduce((sum, item, index, array) => {
+                                return sum + item.value;
+                            }, 0)
+                        ).replace(/(\d)(?=(?:\d{6})+$)/g, "$1."),
+                    // String(this.circularGraph.sum.number).replace(/(\d)(?=(?:\d{6})+$)/g, '$1.'),
+                    textAlign: "center",
+                    fill: "#333",
+                    width: 30,
+                    height: 30,
+                    fontSize: 14
+                }
+            },
+            series: [
+                {
+                    type: "pie",
+                    radius: ["35%", "65%"],
+                    center: ['34%', '50%'],
+                    // label: {
+                    //   //去除句柄
+                    //   normal: {
+                    //     position: "inner",
+                    //     show: false,
+                    //   },
+                    // },
+                    itemStyle: {
+                        normal: {
+                            label: {
+                                show: true,
+                                textStyle: { color: "#333", fontSize: "14" },
+                                formatter: function (val) {
+                                    //让series 中的文字进行换行
+                                    return val.name;
+                                    // return val.name + "\n(" + val.percent + "%)";
+                                }
+                            },
+                            labelLine: {
+                                show: true,
+                                lineStyle: { color: "#3c4858" }
+                            }
+                        },
+                        emphasis: {
+                            shadowBlur: 10,
+                            shadowOffsetX: 0,
+                            shadowColor: "rgba(0, 0, 0, 0.5)",
+                            textColor: "#000"
+                        }
+                    },
+                    data: circularGraph.data //数据
+                }
+            ],
+            color: circularGraph.color //颜色
+        };
+
+        var myChart = echarts.init(document.getElementById("chart"));
+        // 指定图表的配置项和数据
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+
+        // 监听容器大小变化
+        window.addEventListener("resize", function () {
+            myChart.resize();
+        });
+
+    </script>
+<!--<div class="container">
+    <h1>Click The Menu</h1>
+    <p>Be Amazed</p>
+</div>
+<div class="button_container" id="toggle"><span class="top"></span><span class="middle"></span><span class="bottom"></span></div>
+<div class="overlay" id="overlay">
+    <nav class="overlay-menu">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Work</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+</div>
+
+<div id="signout">
+    <button class="signout_btn">
+    <span class="circle" aria-hidden="true">
+      <span class="icon arrow"></span>
+    </span>
+        <span class="button-text">Learn More</span>
+    </button>
+</div>
+
+<script>
+    document.querySelector('#toggle').addEventListener('click', function() {
+        this.classList.toggle('active');
+        document.getElementById('overlay').classList.toggle('open');
+    });
+</script>-->
+</body>
+</html>
+
+
+
+
+<!--<!DOCTYPE html>
+<html>
+<head>
+    <title>Generate Combined Image</title>
+    <link rel="stylesheet" href="css/test.css">
+</head>
+<body>
+<div class="wrap">
+    <h2>Horizontal Bar Chart</h2>
+    <div class="barGraph">
+        <ul class="graph">
+      <span class="graph-barBack">
+        <li class="graph-bar" data-value="28.5">
+          <span class="graph-legend">Mon</span>
+        </li>
+      </span>
+
+            <span class="graph-barBack">
+        <li class="graph-bar" data-value="85">
+          <span class="graph-legend">Tue</span>
+        </li>
+      </span>
+
+            <span class="graph-barBack">
+        <li class="graph-bar" data-value="70">
+          <span class="graph-legend">Wed</span>
+        </li>
+      </span>
+
+            <span class="graph-barBack">
+        <li class="graph-bar" data-value="50">
+          <span class="graph-legend">Thu</span>
+        </li>
+      </span>
+
+            <span class="graph-barBack">
+        <li class="graph-bar" data-value="68">
+          <span class="graph-legend">Fri</span>
+        </li>
+                </spa>
+        </ul>
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        document.querySelectorAll('.graph-bar').forEach(function(bar) {
+            var dataWidth = bar.getAttribute('data-value');
+            bar.style.width = dataWidth + "%";
+        });
+    });
+</script>
+</body>
+</html>-->
+

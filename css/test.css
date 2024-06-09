@@ -1,0 +1,174 @@
+/*.image-container {
+    position: fixed;
+    width: 100%;
+    height: calc(0.40 * 100vw);
+    overflow: hidden;
+    z-index: -10;
+}
+
+.image {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 50%;
+    background-size: cover;
+    background-position: center;
+}
+
+.image1 {
+    left: 0;
+    background-image: url('../images/Countries/Portugal.png');
+
+}
+
+.image2 {
+    right: 0;
+    background-image: url('../images/Countries/Inglaterra.png');
+
+}
+
+.image-container::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 50%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent 0%, Black 50%, transparent 100%);
+    transform: translateX(50%);
+    pointer-events: none;
+}
+
+
+
+
+
+.wrap {
+    margin: 0 auto;
+    padding: 50px;
+    max-width: 1200px;
+}
+.barGraph {
+    position: relative;
+    width: 100%;
+    height: auto;
+    margin-bottom: 50px;
+}
+.graph {
+    position: relative;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width: calc(96%);
+    left: 4%;
+}
+.graph-barBack {
+    border-radius: 2px;
+    background: #DAE4EB;
+    margin-bottom: 10px;
+    display: block;
+}
+.graph-bar {
+    background-color: #00ffff;
+    border-radius: 2px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 9999;
+    display: block;
+    height: 20px;
+    width: 0%;
+}
+.graph-bar:hover {
+    background: #428D92;
+}
+.graph-bar:last-child {
+    margin-bottom: 0;
+}
+.graph-bar:after {
+    position: absolute;
+    content: attr(data-value);
+    display: none;
+    font-size: 12px;
+    border-radius: 4px;
+    background: rgba(0,0,0,0.5);
+    color: #fff;
+    line-height: 20px;
+    height: 10px;
+    padding: 0 10px;
+    margin-left: 5px;
+    left: 100%;
+    top: 0;
+}
+.graph-bar:hover:after {
+    display: block;
+}
+.graph-legend {
+    position: absolute;
+    margin-right: 10px;
+    left: -40px;
+    z-index: 9999;
+}*/
+
+
+.player_progressbar {
+    padding: 0px;
+    width: 10%;
+}
+.flex-wrapper {
+    display: flex;
+    flex-flow: row nowrap;
+}
+.single-chart {
+    width: 33%;
+    justify-content: space-around;
+}
+.circular-chart {
+    display: block;
+    margin: 0px auto;
+    max-width: 80%;
+    max-height: 250px;
+}
+.circle-bg {
+    fill: none;
+    stroke: #eee;
+    stroke-width: 3.8;
+}
+.circle {
+    fill: none;
+    stroke-width: 2.8;
+    stroke-linecap: round;
+    animation: progress 1s ease-out forwards;
+}
+@keyframes progress {
+    0% {
+        stroke-dasharray: 0, 100;
+    }
+}
+.circular-chart.orange .circle {
+    stroke: #ff6c0c;
+}
+.circular-chart.green .circle {
+    stroke: #4cc790;
+}
+.circular-chart.blue .circle {
+    stroke: #ff6c0c;
+}
+.circular-chart.triple path:nth-child(2) {
+    stroke: #ff6c0c;
+}
+.circular-chart.triple path:nth-child(3) {
+    stroke: #7433ff;
+}
+.circular-chart.triple path:nth-child(4) {
+    stroke: #3cff3c;
+}
+.percentage {
+    fill: #666;
+    font-family: sans-serif;
+    font-size: 0.5em;
+    text-anchor: middle;
+}
+
+
+

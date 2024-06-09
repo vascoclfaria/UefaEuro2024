@@ -1,0 +1,96 @@
+@keyframes fadeIn{
+    from{
+        opacity: 0;
+        transform: rotateX(0); /*transform: rotateX(-10deg); [makes a litle jump]*/
+    }
+
+    to{
+        opacity: 1;
+        transform: rotateX(0);
+    }
+}
+
+/*Responsible for creating the background image of the two country flags of a game*/
+.game-wallpaper {
+    position: relative;
+    width: 100%;
+    height: calc(0.40 * 100vw);
+    border: 1px solid black;
+    /*z-index: -10;*/
+}
+
+.game-wallpaper .image {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 50%;
+    background-size: cover;
+    background-position: center;
+}
+
+.game-wallpaper .home-team,
+.game-wallpaper .away-team {
+    position: absolute;
+    width: 70%;
+    height: 100%;
+    animation: fadeIn 0.75s;
+}
+
+.game-wallpaper .home-team {
+    /*background-image: url(../images/Countries/Portugal.png);*/
+    /*clip-path: polygon(0 0, 100% 0, calc(100% - 110px) 100%, 0% 155%);*/
+    top: 0;
+    left: 0;
+    visibility: hidden;
+    animation: fadeIn 0.75s;
+}
+
+.game-wallpaper .away-team {
+    /*background-image: url(../images/Countries/Inglaterra.png);*/
+    clip-path: polygon(110px 0, 100% 0, 100% 100%, 0 100%);
+    top: 0;
+    right: -15%;
+    visibility: hidden;
+    animation: fadeIn 0.75s;
+}
+
+.game-wallpaper .middle-shadow{
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 50%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(110deg, transparent 0%, Black 50%, transparent 100%);
+    transform: translateX(50%);
+    pointer-events: none;
+    visibility: hidden;
+    animation: fadeIn 0.75s;
+}
+
+
+
+
+.game-wallpaper.is-loading /*, .game-wallpaper.is-loading h2, .game-wallpaper.is-loading p*/ {
+    background: #212933/*#eee*/;
+    background: linear-gradient(110deg, /*#ececec*/#1f2731 8%, /*#f5f5f5*/#28303a 18%, /*#ececec*/#1f2731 33%);
+    border-radius: 5px;
+    background-size: 200% 100%;
+    animation: 1.5s shine linear infinite;
+}
+.game-wallpaper.is-loading  {
+    height: 100%;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+/*.game-wallpaper.is-loading h2 {
+    height: 30px;
+}
+.game-wallpaper.is-loading p {
+    height: 70px;
+}*/
+@keyframes shine {
+    to {
+        background-position-x: -200%;
+    }
+}

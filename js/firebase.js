@@ -24,6 +24,24 @@ let file = path.split("/").pop();
 _player = localStorage.getItem("username");
 // console.log(_player)
 
+//Show admin tab for admins only
+document.addEventListener('DOMContentLoaded', function() {
+    auth.onAuthStateChanged(function (user) {
+        if (user) {
+            let adminEmail = user.email;
+            if (adminEmail === "90215goncalopinto@gmail.com" || adminEmail === "vasco.faria@hotmail.com" || adminEmail === "test@test.com") {
+                console.log("TOU LOGINADO")
+                document.getElementById('admin_link').style.display = 'block';
+
+                const listItems = document.querySelectorAll('.overlay ul li');
+                listItems.forEach(item => {
+                    item.style.height = 'calc(100% / 5)';
+                });
+            }
+        }
+    });
+});
+
 switch (file) {
     case 'index.html':
         //go to register page
@@ -36,7 +54,7 @@ switch (file) {
         document.getElementById('loginForm').style.display = "none";
         document.getElementById('loader').style.display = "flex";
         auth.onAuthStateChanged(function (user) {
-            if (user) {
+            /*if (user) {
                 let playerEmail = user.email;
                 db.ref('Users').once("value", function (snapshot) {
                     var users = snapshot.val();
@@ -55,10 +73,10 @@ switch (file) {
                         });
                     }
                 });
-            } else {
+            } else {*/
                 document.getElementById('loginForm').style.display = "block";
                 document.getElementById('loader').style.display = "none";
-            }
+            //}
         });
 
         //login player
@@ -198,8 +216,8 @@ switch (file) {
                                 var info = game.info;
                                 var bets = game.bets;
 
-                                console.log("bets: ", bets);
-                                console.log(home, home_team, " || ", away, away_team);
+                                //console.log("bets: ", bets);
+                                //console.log(home, home_team, " || ", away, away_team);
 
                                 if (home == home_team && away == away_team) {
                                     if (!canBet(new Date(info))) {
@@ -213,7 +231,8 @@ switch (file) {
                                     else {
                                         //Update bet in DB World Cup Competition
                                         bets[bet.key] = bet.value;
-                                        console.log("AAAAAA:", bets);
+                                        console.log("BET:", bets)
+                                        console.log(bet.key);
                                         gamesDB.child(p).child(g).update({
                                             bets: bets
                                         });
@@ -225,8 +244,9 @@ switch (file) {
                                             var bets = user.bets;
 
                                             bets[g] = bet.value;
+                                            console.log(g);
                                             db.ref('Users/' + _player).update({
-                                                bets: bets
+                                                bets: bets,
                                             });
 
                                             window.location.reload();
@@ -236,7 +256,7 @@ switch (file) {
                                         document.getElementById('error_msg').innerHTML = "Aposta colocada";
                                         document.getElementById('error_msg').style.color = "green";
                                         // alert("Aposta colocada");
-                                        // window.location.reload();
+                                        //window.location.reload();
                                     }
                                 }
                             });
@@ -254,7 +274,7 @@ switch (file) {
             if (user) {
                 let adminEmail = user.email;
                 // console.log("TOU LOGINADO")
-                if (adminEmail === "90215goncalopinto@gmail.com" || adminEmail === "vasco.faria@hotmail.com") {
+                if (adminEmail === "90215goncalopinto@gmail.com" || adminEmail === "vasco.faria@hotmail.com" || adminEmail === "test@test.com") {
                     console.log("SOU ADMIN")
                     document.getElementById('loader').style.display = "none";
                     document.getElementById("empty").classList.remove('empty');
@@ -321,7 +341,7 @@ switch (file) {
                         if (phase === "Semi Final") { phase = "Semi-Final"; } //TODO: CORRIGIR ESTE ERRO 
                         var game = id.split(" ")[1];
                         var score = document.getElementById('score').value;
-                        console.log("GAME: ", phase, game, score)
+                        //console.log("GAME: ", phase, game, score)
 
                         gamesDB.child(phase).child(game).update({
                             score: score
@@ -338,8 +358,15 @@ switch (file) {
                                     // console.log("Bets: ", user);
                                     var bets = user.bets;
                                     var points = parseInt(user.points);
+
+                                    var correct = parseInt(user.correct);
+                                    var diffGoals = parseInt(user.diffGoals);
+                                    var winTieDef = parseInt(user.winTieDef);
+                                    var oneAway = parseInt(user.oneAway);
+                                    var totalgames = parseInt(user.totalGames);
+
                                     // var points = 0; //USAR ESTA LINHA SO PARA TESTES AO SITE
-                                    console.log(u)
+                                    //console.log(u)
                                     for (b in bets) {
                                         if (b === game) { //if (b != "GameRef") {
                                             var bet = bets[b];
@@ -349,27 +376,39 @@ switch (file) {
                                             var sx = parseInt(score.split("-")[0]);
                                             var sy = parseInt(score.split("-")[1]);
                                             // console.log("VALOR: ", Math.abs(x - y), x, y)
-                                            console.log("PHASE: ", phase)
+                                            //console.log("PHASE: ", phase)
                                             let pointsTable = getPointsTable(phase);
                                             console.log(pointsTable)
 
                                             if (correctPrediction(score, bet)) {
                                                 if (x == sx && y == sy) {
                                                     points += pointsTable["correct"];
+                                                    correct += 1;
                                                 }   //             Diferença de golos                                         Ficar a 1 golo do resultado certo
                                                 else if ((Math.abs(x - y) == Math.abs(sx - sy)) || (x == sx && y == sy + 1) || (x == sx && y == sy - 1) || (x == sx + 1 && y == sy) || (x == sx - 1 && y == sy)) {
                                                     points += pointsTable["diffGoals"];
+                                                    diffGoals += 1;
                                                 }
                                                 else {
                                                     points += pointsTable["winTieDef"];
+                                                    winTieDef += 1;
                                                 }
                                             } else if ((x == sx && y == sy + 1) || (x == sx && y == sy - 1) || (x == sx + 1 && y == sy) || (x == sx - 1 && y == sy)) {
                                                 points += pointsTable["oneAway"];
+                                                oneAway += 1;
                                             }
+                                            totalgames += 1;
+
+                                            console.log(correct, diffGoals, winTieDef, oneAway, totalgames);
 
                                             // console.log("   Points: ", points);
                                             usersDB.child(u).update({
-                                                points: points
+                                                points: points,
+                                                correct: correct,
+                                                diffGoals: diffGoals,
+                                                winTieDef: winTieDef,
+                                                oneAway: oneAway,
+                                                totalgames: totalgames
                                             });
                                         }
                                     }
@@ -436,7 +475,9 @@ switch (file) {
         let arrLetters = oppUsename.split('');
         for (let l in arrLetters) {
             let span = document.createElement('span');
+            //console.log(arrLetters[l])
             span.innerHTML = arrLetters[l];
+            //console.log(span)
             oppName.appendChild(span);
         }
         // let oppName = document.getElementById('oppUsername');
@@ -453,26 +494,32 @@ switch (file) {
             var bets = snapshot.val();
             console.log("Apostas: ", bets);
             for (let b in bets) {
-                // console.log("gameBet",b);
+                //console.log("gameBet",b);
                 gamesDB.once("value", function (snapshot) {
                     var fase = snapshot.val();
-                    // console.log("Fase: ", fase);
+                    console.log("Fase: ", fase);
                     for (let f in fase) {
-                        // console.log(f);
+                        console.log('FASE', f);
                         gamesDB.child(f).once("value", function (snapshot) {
                             var games = snapshot.val();
                             var gamesKeys = Object.keys(games);
-                            // console.log("games: ", games);
+                            console.log("games: ", games);
                             for (let g in games) {
-                                console.log(g, gamesKeys[gamesKeys.length - 1])
+                                //console.log(g, b)
                                 if (g === b) {
-                                    console.log("+1 JOGO ")
+                                    let p1 = f.split(")")[1];
+                                    //newSection(p1);
+                                    //console.log("+1 JOGO ")
                                     gamesDB.child(f).child(g).once("value", function (snapshot) {
                                         var game = snapshot.val();
                                         var gameID = "game_" + count;
+                                        var posName = "games_" + p1.charAt(0)+p1.charAt(1);
                                         var playerBet = getPlayerBet(game.bets, oppUsename);
                                         // console.log(gameID, ": ", playerBet)
 
+                                        newMatch("games_Ap",gameID, game.home, game.away, game.info, game.score, playerBet, games);
+                                        document.getElementById('tables').style.display = "block";
+                                        document.getElementById('msg').style.display = "none";
                                         //console.log(gameID, home_team, away_team, match_info, match_score, match_bet, matchesArr);
                                         if (!canBet(new Date(game.info))) {
                                             count++;
@@ -491,7 +538,7 @@ switch (file) {
                                         // }
                                     });
                                 } else if (g === gamesKeys[gamesKeys.length - 1] && count == 0) {
-                                    console.log("SOU O ULTIMO ", count)
+                                    //console.log("SOU O ULTIMO ", count)
                                     document.getElementById('msg').style.display = "block";
                                 }
                             }
@@ -531,11 +578,14 @@ switch (file) {
                             gamesDB.child(f).child(g).once("value", function (snapshot) {
                                 var game = snapshot.val();
                                 var bets = game.bets;
-                                console.log(bets);
+                                //console.log(bets);
                                 var betsKeys = Object.keys(bets);
                                 var betsValues = Object.values(bets);
                                 // console.log(betsKeys);
                                 // console.log(betsValues)
+                                console.log(game.home, game.away)
+
+                                createGameWallpaper(game.home, game.away);
 
                                 for (let v in betsValues) {
                                     let betScore = betsValues[v];
@@ -557,7 +607,7 @@ switch (file) {
 
 
                                 //Create x-axis values 
-                                let x_axis =  document.getElementById("x-axis");
+                                /*let x_axis =  document.getElementById("x-axis");
                                 let x_width = 100 / Object.keys(betsDict).length;
                                 console.log("X-width: ", x_width);
                                 for([key, val] of Object.entries(betsDict)) {
@@ -622,7 +672,29 @@ switch (file) {
 
                                     // //update next bar color
                                     // barStat = barStat < 9 ? barStat+1 : 1; 
+                                }*/
+
+                                let sumValues = Object.values(betsDict).reduce((sum, val) => sum + val, 0);
+                                let graph = document.getElementById("graph");
+                                for([key, val] of Object.entries(betsDict).sort(([,a],[,b]) => b- a)) {
+                                    let bar = document.createElement('span');
+                                    bar.classList.add('bar');
+
+                                    let barvalue = document.createElement('li');
+                                    barvalue.classList.add('barvalue');
+                                    //console.log(Math.round((val * 100)/sumValues))
+                                    barvalue.setAttribute("data-value", String.valueOf(Math.round((val * 100)/sumValues)))
+                                    barvalue.style.width = Math.round((val * 100)/sumValues) + "%";
+
+                                    let barlegend = document.createElement('span');
+                                    barlegend.classList.add('barlegend');
+                                    barlegend.innerHTML = key;
+
+                                    barvalue.appendChild(barlegend);
+                                    bar.appendChild(barvalue);
+                                    graph.appendChild(bar);
                                 }
+
 
                                 //Create table
                                 let table_section = document.getElementById("table_section");
@@ -632,12 +704,23 @@ switch (file) {
                                     caption.innerHTML = key;
                                     table.appendChild(caption);
 
-                                    console.log("Case", val);
+                                    //console.log("Case", val);
                                     for(let p in val){
-                                        console.log(val, " || ", val[p])
+                                        let name = val[p]
+                                        //console.log(val, " || ", val[p])
                                         let tr = document.createElement('tr');
                                         let td = document.createElement('td');
-                                        td.innerHTML = val[p];
+                                        td.innerHTML = name;
+
+
+                                        if (name != _player) {
+                                            console.log(name);
+                                            tr.style.cursor = 'pointer';
+                                            tr.onclick = function (event) {
+                                                localStorage.setItem("opponent", name);
+                                                window.location.href = "opponentBets.html";
+                                            }
+                                        }
 
                                         tr.appendChild(td);
                                         table.appendChild(tr);
@@ -657,9 +740,20 @@ switch (file) {
             }
             // console.log("game: ", game);
         });
+    case 'profile.html':
+        document.getElementById('container').addEventListener('click', function (){
+            auth.signOut().then(() => {
+                console.log('User signed out');
+                window.location.href = "index.html";
+            }).catch((error) => {
+                console.error('Error signing out: ', error);
+            });
+        });
+        break;
     default:
     //TODO
 }
+
 
 
 
@@ -770,13 +864,13 @@ function newTableEntry(username, userdata, position) {
 
     let row = document.createElement('div');
     row.classList.add("row");
-    if (username != _player) {
+   // if (username != _player) {
         row.style.cursor = 'pointer';
         row.onclick = function (event) {
             localStorage.setItem("opponent", username);
             window.location.href = "opponentBets.html";
         }
-    }
+   // }
 
 
     let pos = document.createElement('div');
@@ -935,8 +1029,6 @@ function newMatch(posName, gameID, home_team, away_team, match_info, match_score
     init.classList.add("fixture");
     if (canBet(new Date(match_info))) {
         init.onclick = function (event) {
-            document.getElementById("empty").classList.add('empty'); //change background opacity
-
             var home = document.getElementById(gameID).children[0].children[0].children[1].children[0].innerHTML;
             var homeImg = document.getElementById(gameID).children[0].children[0].children[0].children[0].src;
             var away = document.getElementById(gameID).children[0].children[2].children[1].children[0].innerHTML;
@@ -957,7 +1049,14 @@ function newMatch(posName, gameID, home_team, away_team, match_info, match_score
                 document.getElementById("away_score_popup").value = bet.split("-")[1];
             }
 
-            document.querySelector(".popup").style.display = "block"; //show game
+            //Stop Scrolling
+            let x= window.scrollX;
+            let y= window.scrollY;
+            window.onscroll=function(){window.scrollTo(x, y);};
+            //change background opacity
+            document.getElementById("empty").classList.add('empty');
+            //show game
+            document.querySelector(".popup").style.display = "block";
         }
     } else {
         init.onclick = function (event) {
@@ -1060,7 +1159,7 @@ function newMatch(posName, gameID, home_team, away_team, match_info, match_score
 }
 
 function newMatch1(gameID, home_team, away_team, match_info, match_score, match_bet, matchesArr) {
-    let games = document.getElementById("games_A")
+    let games = document.getElementById("tables")
 
     let init = document.createElement('div');
     init.id = gameID;
@@ -1148,6 +1247,41 @@ function newMatch1(gameID, home_team, away_team, match_info, match_score, match_
     }
 }
 
+function createGameWallpaper(home_team, away_team){
+    /*  <div class="game-wallpaper is-loading">
+                <div id="home-team" class="image home-team"></div>
+                <div id="away-team"class="image away-team"></div>
+                <div id="divider" class="middle-shadow"></div>*/
+    let pageTop = document.getElementById("page_top")
+
+    let init = document.getElementById('wallpaper');
+    //let init = document.createElement('div');
+    init.classList.add("game-wallpaper");
+
+    //let homeTeam = document.createElement('div');
+    //homeTeam.classList.add("image", "home-team");
+    let homeTeam = document.getElementById('home-team');
+    homeTeam.style.backgroundImage = "url('images/Countries/"+home_team+".png')";
+
+    //let awayTeam = document.createElement('div');
+    //awayTeam.classList.add("image", "away-team");
+    let awayTeam = document.getElementById('away-team');
+    awayTeam.style.backgroundImage = "url('images/Countries/"+away_team+".png')";
+
+    //let divider = document.createElement('div');
+    //divider.classList.add("middle-shadow");
+    let divider = document.getElementById('divider');
+
+    //init.appendChild(homeTeam);
+    //init.appendChild(awayTeam);
+    //init.appendChild(divider);
+    //pageTop.appendChild(init);
+
+    init.classList.remove('is-loading');
+    divider.style.visibility = "visible";
+    homeTeam.style.visibility = "visible";
+    awayTeam.style.visibility = "visible";
+}
 //Not beeing used
 function changeBetColor(score, elem_bet) {
     bet = elem_bet.innerHTML;
@@ -1256,6 +1390,11 @@ function registerUser() {
                     db.ref('Users/' + username).set({
                         email: email,
                         points: 0,
+                        correct: 0,
+                        diffGoals: 0,
+                        winTieDef: 0,
+                        oneAway: 0,
+                        totalgames: 0,
                         bets: { "GameRef": "bet" }
                     })
 
@@ -1387,6 +1526,7 @@ function loginUser() {
         });
     }
 }
+
 
 /**
  * This method is responsible for the logout of user

@@ -23,6 +23,7 @@
   <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
   integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
   <!-- Custom styles for this template -->
+  <!--<link href="css/style_old.css" rel="stylesheet" />-->
   <link href="css/style.css" rel="stylesheet" />
   <!-- responsive style -->
   <link href="css/responsive.css" rel="stylesheet" />
@@ -32,7 +33,7 @@
 </head>
 
 <body>
-  <div class="hero_area">
+  <!--<div class="hero_area">
     <header class="header_section">
       <div class="container-fluid">
         <nav>
@@ -51,28 +52,79 @@
           </ul>
         </nav>
       </div>
-    </header>
+    </header>-->
 
-    <div class="hero_section ">
-      <div class="hero_detail">
-        <h1>
-          <span> J </span>
-          <span> o </span>
-          <span> g </span>
-          <span> o </span>
-          <span> s </span>
-        </h1>
+  <nav>
+    <div class="logo">
+      <img src="images/2022_FIFA_World_Cup.png" alt="Logo Image">
+    </div>
+    <div class="hamburger">
+      <svg class="ham hamRotate ham4" viewBox="0 0 100 100" width="80" onclick="this.classList.toggle('active')">
+        <path class="line top" d="m 70,33 h -40 c 0,0 -8.5,-0.149796 -8.5,8.5 0,8.649796 8.5,8.5 8.5,8.5 h 20 v -20" />
+        <path class="line middle" d="m 70,50 h -40" />
+        <path class="line bottom" d="m 30,67 h 40 c 0,0 8.5,0.149796 8.5,-8.5 0,-8.649796 -8.5,-8.5 -8.5,-8.5 h -20 v 20" />
+      </svg>
+    </div>
+    <div class="overlay" id="overlay">
+      <div class="overlay-menu">
+        <ul>
+          <li><a href="home.html">Jogos</a></li>
+          <li><a href="classification.html">Pontuações</a></li>
+          <li id="admin_link" ><a href="admin.html">Update</a></li>
+          <li><a href="profile.html">Perfil</a></li>
+          <li><a href="rules.html">Regras</a></li>
+        </ul>
       </div>
     </div>
+  </nav>
+
+  <!--<div class="hero_section ">
+    <div class="hero_detail">
+      <h1>
+        <span> J </span>
+        <span> o </span>
+        <span> g </span>
+        <span> o </span>
+        <span> s </span>
+      </h1>
+    </div>
   </div>
+</div>
 
-  <section id="tables"></section>
+<section id="tables"></section>
 
-  <section id="loader" class="spinner">
-    <div class="circle one"></div>
-    <div class="circle two"></div>
-    <div class="circle three"></div>
+<section id="loader" class="spinner">
+ <div class="circle one"></div>
+ <div class="circle two"></div>
+ <div class="circle three"></div>
+</section>-->
+
+  <section class="page_body">
+    <section class="page_top">
+      <div class="hero_section ">
+        <div class="hero_detail">
+          <h1>
+            <span> J </span>
+            <span> o </span>
+            <span> g </span>
+            <span> o </span>
+            <span> s </span>
+          </h1>
+        </div>
+      </div>
+    </section>
+    <section class="page_bottom">
+      <section id="tables"></section>
+
+      <section id="loader" class="spinner">
+        <div class="circle one"></div>
+        <div class="circle two"></div>
+        <div class="circle three"></div>
+      </section>
+
+    </section>
   </section>
+
 
 
   <footer class="footer">
@@ -81,13 +133,6 @@
         <span> Sobre nós </span> 
         Este site é dedicado àqueles que atualmente perdem dinheiro em sites de apostas tradicionais. A nossa esperança é fornecer-vos as ferramentas necessárias para pararem de perder o vosso dinheiro em apostas sem perder a adrenalina de prever os resultados deste mundial, numa competição entre amigos. Boa sorte a todos os participantes e que vença o mais sortudo.
       </p>
-      <!-- <div class="icons">
-        <a href="#"><i class="fa fa-facebook"></i></a>
-        <a href="#"><i class="fa fa-twitter"></i></a>
-        <a href="#"><i class="fa fa-linkedin"></i></a>
-        <a href="#"><i class="fa fa-google-plus"></i></a>
-        <a href="#"><i class="fa fa-instagram"></i></a>
-      </div> -->
     </div>
     <div class="footer-center col-md-4 col-sm-6">
       <div>
@@ -115,79 +160,37 @@
     </div>
   </footer>
 
-
-  <!-- <div class="popup">
-    <form id="betForm">
-      <div class="fixture">
-        <div id="info_popup" class="match-info" data-schedule="2030-01-01 00:00:00">Jan 1st (Tue) 00:00 / </div>
-        <div class="score-board">
-          <div class="home">
-            <div><img id="home_img_popup" class="team-img" src=""></div>
-            <div><span id="home_team_popup"></span></div>
-          </div>
-          <div class="info">
-            <div class="row">
-              <input type="number" id="home_score_popup" class="noscroll" style="float:left; width:33%;"
-                oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                maxlength="2"><br>
-              <h1 style="float:left; width:33%;">-</h1>
-              <input type="number" id="away_score_popup" class="noscroll" style="float:left; width:33%;"
-                oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                maxlength="2"><br>
-            </div>
-          </div>
-          <div class="away">
-            <div><img id="away_img_popup" class="team-img" src=""></div>
-            <div><span id="away_team_popup"></span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <button class="submit">Save</button>
-    </form>
-  </div> -->
-
   <div class="popup">
     <form id="betForm">
       <div class="fixture">
 
-        <!-- <div class="score-board">
-          <div class="home" style="width: 32%;">
-            <div><img id="home_img_popup" class="team-img"></div>
-            <div><span id="home_team_popup">Equador</span></div>
-          </div>
-          <div id="info">
-            <div id="info_popup" class="match-info">Oct 24 (Seg) 20:44</div>
-            <div class="row">
-              <input type="number" id="home_score_popup" class="noscroll" style="float:left; width:33%;" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="2"><br>
-              <h1 style="float:left; width:33%; background: rgba(255, 255, 255, 0.2);">-</h1>
-              <input type="number" id="away_score_popup" class="noscroll" style="float:left; width:33%;" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="2"><br>
-            </div>
-          </div>
-          <div class="away" style="width: 32%;">
-            <div><img id="away_img_popup" class="team-img" src="images/Countries/Qatar.png"></div>
-            <div><span id="away_team_popup">Qatar</span></div>
-          </div>
-        </div> -->
-  
-  
         <div id="info_popup" class="match-info" data-schedule="2030-01-01 00:00:00">Jan 1st (Tue) 00:00 / </div>
         <div class="score-board">
           <div class="home">
             <div><img id="home_img_popup" class="team-img" src=""></div>
             <div><span id="home_team_popup"></span></div>
           </div>
-          <div class="info" style="margin-top: 10px;">
-            <div class="row">
-              <input type="number" id="home_score_popup" class="noscroll" style="float:left; width:33%;"
+          <div class="info" style="margin-top: 20px; height: 100%">
+            <!--<div class="row">
+              <input type="number" id="home_score_popup" class="noscroll" style="float:left; width:33%; height: 100%"
                 oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                 maxlength="2"><br>
               <h1 style="float:left; width:33%;">-</h1>
-              <input type="number" id="away_score_popup" class="noscroll" style="float:left; width:33%;"
+              <input type="number" id="away_score_popup" class="noscroll" style="float:right; width:33%;"
                 oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                 maxlength="2"><br>
+            </div>-->
+            <div class="row">
+              <input type="number" min="0" id="home_score_popup" class="score-input text-center"
+                     oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                     maxlength="2">
+              <h1 class="score-separator">-</h1>
+              <input type="number" min="0" id="away_score_popup" class="score-input"
+                     oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                     maxlength="2">
             </div>
           </div>
+
           <div class="away">
             <div><img id="away_img_popup" class="team-img" src=""></div>
             <div><span id="away_team_popup"></span>
@@ -200,6 +203,7 @@
     </form>
   </div>
 
+  <div id="empty" onclick="exitGame();"></div>
 
   <!-- <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script> -->
   <!-- <script type="text/javascript" src="js/bootstrap.js"></script> -->
@@ -247,7 +251,7 @@
     //   document.querySelector(".popup").style.display = "block";
     // }
 
-    function exitGame() {
+    /*function exitGame() {
       if (document.getElementById("empty").classList.contains("empty")) {
         document.getElementById("empty").classList.remove('empty');
         document.querySelector(".popup").style.display = "none";
@@ -255,35 +259,12 @@
         document.getElementById("home_score_popup").value = "";
         document.getElementById("away_score_popup").value = "";
       }
-    }
+    }*/
   </script>
 
   <script>
   </script>
-
-  <div id="empty" onclick="exitGame();"></div>
 </body>
 
 </html>
 
-
-
-<!-- <div id="F_game1" class="fixture">
-  <div class="score-board">
-    <div class="home">
-      <div><img class="team-img" src="images/Countries/Equador.png"></div>
-      <div><span id="home_team">Equador</span></div>
-    </div>
-    <div id="info">
-      <div class="match-info">Oct 24 (Seg) 20:44</div>
-      <div class="score">2-1</div>
-      <div class="match-info">APOSTA</div>
-      <div style="text-align: center; text-shadow: rgba(0, 0, 0, 0) 1px 1px; color: rgb(5, 181, 52);">2-1</div>
-    </div>
-    <div class="away">
-      <div><img class="team-img" src="images/Countries/Qatar.png"></div>
-      <div><span id="away_team">Qatar</span></div>
-    </div>
-  </div>
-</div>
- -->

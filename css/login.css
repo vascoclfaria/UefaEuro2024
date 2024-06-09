@@ -1,0 +1,127 @@
+@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@400;500;600;700&display=swap");
+/* body {
+    font-family: "Mulish", sans-serif;
+    font-display: optional;
+    background-color: var(--bg);
+    margin: 10px;
+} */
+
+#myVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+}
+
+.login {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+.loginCard {
+    width: 400px;
+    height: auto;
+    /* height: min-content; */
+    padding: 20px;
+    border-radius: 8px;
+    /* background: green; */
+    background-color: rgba(8, 8, 8, 0.85);
+    font-family: "Mulish", sans-serif;
+}
+
+.login form .form-group {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.login form input[type="submit"] {
+    font-size: 20px;
+    margin-top: 15px;
+}
+
+.login h3 {
+    margin-top: 20px;
+    margin-bottom: 25px;
+    color: white;
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.login span {
+    font-weight: 600;
+    margin: 0px 16px;
+}
+
+.login label {
+    display: flex;
+    flex-direction: column;
+}
+
+.login label span {
+    color: white;
+    margin-bottom: 5px;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.login label input {
+    background-color: transparent;
+    border: none;
+    color: white;
+}
+
+.login label .input {
+    padding: 10px 0px 10px 20px;
+    border: 1px solid #d8d8d8;
+    border-radius: 5px;
+    background-color: transparent;
+    color: white;
+}
+
+.login label .input #btn_eye {
+    border: none;
+    background: transparent;
+    color: #a9a9a9;
+    float: right;
+    margin-right: 2%;
+    margin-top: 2%;
+}
+
+.login label .input #btn_eye:focus,
+input:focus {
+    outline: none;
+}
+
+.login .footer {
+    color: white;
+}
+
+.login .footer a {
+    color: #4285f4;
+}
+
+.error_msg{
+    color: red;
+    padding-top: 10px;
+}
+
+/* .login .footer a,
+span {
+  font-size: 11.5px;
+} */
+
+.error_msg{
+    color: red;
+    padding-top: 10px;
+}
+
+/* .login .footer a,
+span {
+  font-size: 11.5px;
+} */
+

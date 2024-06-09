@@ -23,6 +23,7 @@
     <!-- <link rel="stylesheet" type="text/css" href="css/bootstrap.css" /> -->
     <!-- Custom styles for this template -->
     <link href="css/style.css" rel="stylesheet" />
+    <link href="css/test.css" rel="stylesheet" />
     <!-- responsive style -->
     <link href="css/responsive.css" rel="stylesheet" />
 
@@ -45,6 +46,8 @@
                 <ul>
                     <li><a href="home.html">Jogos</a></li>
                     <li><a href="classification.html">Pontuações</a></li>
+                    <li id="admin_link" ><a href="admin.html">Update</a></li>
+                    <li><a href="profile.html">Perfil</a></li>
                     <li><a href="rules.html">Regras</a></li>
                 </ul>
             </div>
@@ -53,24 +56,46 @@
 
     <section class="page_body">
         <section class="page_top">
-            <div class="row">
-                <div class="player_progressbar">
-                    <svg viewBox="0 0 36 36" class="circular-chart triple">
-                        <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
-                        <path class="circle" stroke-dasharray="50, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
-                        <path class="circle" stroke-dasharray="25, 100" transform="rotate(-180 18 18)" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
-                        <path class="circle" stroke-dasharray="25, 100" transform="rotate(-90 18 18)" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
-                    </svg>
-                    <!--  transform="translate(16, 16) rotate(-180 1 1) translate(-20, -20)"  -->
+            <div class="hero_section ">
+                <div class="hero_detail">
+                  <h1 id="oppUsername"></h1>
                 </div>
-                <div class="hero_section ">
-                    <div class="hero_detail">
-                      <h1 id="oppUsername"></h1>
-                    </div>
-                </div>
+            </div>
+            <div class="container">
+                <svg viewBox="0 0 36 36" class="circular-chart triple">
+                    <path class="circle-bg"
+                          d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                    />
+                    <path class="circle"
+                          stroke-dasharray="50, 100"
+                          d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                    />
+                    <path class="circle"
+                          stroke-dasharray="25, 100"
+                          transform="rotate(-180 18 18)"
+                          d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                    />
+                    <path class="circle"
+                          stroke-dasharray="25, 100"
+                          transform="rotate(-90 18 18)"
+                          d="M18 2.0845
+                a 15.9155 15.9155 0 0 1 0 31.831
+                a 15.9155 15.9155 0 0 1 0 -31.831"
+                    />
+                </svg>
+                <!--  transform="translate(16, 16) rotate(-180 1 1) translate(-20, -20)"  -->
+
             </div>
         </section>
         <section class="page_bottom">
+            <div id="signout">
+                <button class="signout_btn">
+                    <span class="circle" aria-hidden="true">
+                      <span class="icon arrow"></span>
+                    </span>
+                    <span class="button-text">Learn More</span>
+                </button>
+            </div>
             <section id="tables"></section>
 
             <section id="loader" class="spinner">

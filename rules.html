@@ -28,7 +28,7 @@
 </head>
 
 <body>
-    <div class="hero_area">
+  <!--  <div class="hero_area">
         <header class="header_section">
             <div class="container-fluid">
                 <nav>
@@ -89,7 +89,6 @@
             <div class="container">
                 <div id="games_F">
                     <div class="fixture-index tournament"><span>Prognósticos</span></div>
-                    <!-- <div class="fixture"> -->
                         <div class="rules_info">
                             <p>Antes do Mundial começar, tens de fazer previsões nos Prognósticos! As previsões dos prognósticos não podem ser alteradas durante o mundial, por isso, coloca-as antes dele começar. Estes consistem em 2 grupos de previsões, a saber:</p>
                             <p>Prémios para os Jogadores. Quem achas que vai ser o:</p>
@@ -106,7 +105,6 @@
 
                             <p>Coloca as tuas previsões dos prognósticos preenchendo o formulário fornecido no grupo!</p>
                         </div>
-                    <!-- </div> -->
                 </div>
             </div>
         </div>
@@ -117,7 +115,6 @@
             <div class="container">
                 <div id="games_F">
                     <div class="fixture-index tournament"><span>Pontuação</span></div>
-                    <!-- <div class="fixture"> -->
                         <div class="rules_info">
                             <p style="text-decoration: underline;">1. Jogos</p>
                             <p>O esquema de pontuação dos jogos divide-se nas seguintes cinco categorias:</p>
@@ -259,7 +256,6 @@
                            
                             <p><strong>Exemplo:</strong> o Jogador X previu que o Campeão seria o Brasil, o Vice-campeão a Alemanha, em 3º Lugar ficava Portugal e em 4º a Argentina. No Mundial, sucedeu que o Brasil perdeu na final, a Alemanha ficou em 4º, Portugal perdeu nos Oitavos e a Argentina perdeu nos Quartos. Então o jogador ganha: 25 Pontos pelo Brasil, 15 Pontos pela Alemanha, 5 Pontos por Portugal e 10 pontos pela Argentina (Total: 55 pontos).</p>
                         </div>
-                    <!-- </div> -->
                 </div>
             </div>
         </div>
@@ -271,17 +267,270 @@
             <div class="container">
                 <div id="games_F">
                     <div class="fixture-index tournament"><span>Jogos</span></div>
-                    <!-- <div class="fixture"> -->
                         <div class="rules_info">
                             <p>Na aba “Jogos” podes colocar as tuas previsões para todos os jogos do Mundial! Tens decolocar um resultado exato.</p>
                             <p><strong>Atenção:</strong></p>
                             <p style='margin-left: 30px;'>As previsões fecham 1 hora antes do jogo começar!</p>
                             <p style='margin-left: 30px;'>Nas fases a eliminar, as previsões não incluem prolongamento ou penaltis!</p>
                         </div>
-                    <!-- </div> -->
                 </div>
             </div>
         </div>
+    </section>-->
+    <nav>
+      <div class="logo">
+          <img src="images/2022_FIFA_World_Cup.png" alt="Logo Image">
+      </div>
+      <div class="hamburger">
+          <svg class="ham hamRotate ham4" viewBox="0 0 100 100" width="80" onclick="this.classList.toggle('active')">
+              <path class="line top" d="m 70,33 h -40 c 0,0 -8.5,-0.149796 -8.5,8.5 0,8.649796 8.5,8.5 8.5,8.5 h 20 v -20" />
+              <path class="line middle" d="m 70,50 h -40" />
+              <path class="line bottom" d="m 30,67 h 40 c 0,0 8.5,0.149796 8.5,-8.5 0,-8.649796 -8.5,-8.5 -8.5,-8.5 h -20 v 20" />
+          </svg>
+      </div>
+      <div class="overlay" id="overlay">
+          <div class="overlay-menu">
+              <ul>
+                  <li><a href="home.html">Jogos</a></li>
+                  <li><a href="classification.html">Pontuações</a></li>
+                  <li><a href="rules.html">Regras</a></li>
+              </ul>
+          </div>
+      </div>
+    </nav>
+
+    <section class="page_body">
+      <section class="page_top">
+          <div class="hero_section ">
+              <div class="hero_detail">
+                  <h1>
+                      <span> R </span>
+                      <span> e </span>
+                      <span> g </span>
+                      <span> r </span>
+                      <span> a </span>
+                      <span> s </span>
+                  </h1>
+              </div>
+          </div>
+      </section>
+      <section class="page_bottom">
+          <section class="about_section layout_padding mt-4">
+              <div class="about_container">
+                  <div class="container">
+                      <div id="games_F">
+                          <div class="fixture-index tournament"><span>Info general</span></div>
+                          <div class="fixture">
+                              <div class="rules_info">
+                                  <p> Podes ver as previsões dos teus adversários apenas depois dos respetivos jogos. </p>
+                                  <p>A pontuação máxima que podes obter neste jogo são 600 pontos! Mas para isso tens de acertar tudinho (não vai acontecer).</p>
+                                  <p style='margin-left: 30px;'>• 240 pelos jogos da fase de grupos</p>
+                                  <p style='margin-left: 30px;'>• 220 pelos jogos da fase a eliminar</p>
+                                  <p style='margin-left: 30px;'>• 60 pelos prognósticos dos jogadores</p>
+                                  <p style='margin-left: 30px;'>• 80 pelos prognósticos das equipas</p>
+                              </div>
+
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </section>
+
+          <section class="about_section layout_padding mt-4">
+              <div class="about_container">
+                  <div class="container">
+                      <div id="games_F">
+                          <div class="fixture-index tournament"><span>Prognósticos</span></div>
+                          <div class="rules_info">
+                              <p>Antes do Mundial começar, tens de fazer previsões nos Prognósticos! As previsões dos prognósticos não podem ser alteradas durante o mundial, por isso, coloca-as antes dele começar. Estes consistem em 2 grupos de previsões, a saber:</p>
+                              <p>Prémios para os Jogadores. Quem achas que vai ser o:</p>
+                              <p style='margin-left: 30px;'>• Melhor Jogador</p>
+                              <p style='margin-left: 30px;'>• Melhor Jogador Jovem</p>
+                              <p style='margin-left: 30px;'>• Melhor Guarda Redes</p>
+                              <p style='margin-left: 30px;'>• Melhor Marcador</p>
+
+                              <p>Top 4. Que equipas achas que ficam na seguinte classificação:</p>
+                              <p style='margin-left: 30px;'>• Campeão</p>
+                              <p style='margin-left: 30px;'>• Vice-campeão</p>
+                              <p style='margin-left: 30px;'>• 3º Lugar</p>
+                              <p style='margin-left: 30px;'>• 4º Lugar</p>
+
+                              <p>Coloca as tuas previsões dos prognósticos preenchendo o formulário fornecido no grupo!</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </section>
+
+          <section class="about_section layout_padding mt-4">
+              <div class="about_container">
+                  <div class="container">
+                      <div id="games_F">
+                          <div class="fixture-index tournament"><span>Pontuação</span></div>
+                          <div class="rules_info">
+                              <p style="text-decoration: underline;">1. Jogos</p>
+                              <p>O esquema de pontuação dos jogos divide-se nas seguintes cinco categorias:</p>
+                              <p style='margin-left: 30px;'>A. Acertar resultado certo (Ex.: previsão 2x1, resultado 2x1).</p>
+                              <p style='margin-left: 30px;'>B. Acertar vitória, empate ou derrota e diferença de golos (Ex.: previsão 2x1, resultado 3x2, 1x0, etc.).</p>
+                              <p style='margin-left: 30px;'>C. Acertar vitória, empate ou derrota e ficar a 1 golo do resultado certo (Ex.: previsão 2x1, resultado 3x1, 2x0).</p>
+                              <p style='margin-left: 30px;'>D. Acertar apenas vitória, empate ou derrota (Ex.: previsão 2x1, resultado 3x0, 4x1, etc.).</p>
+                              <p style='margin-left: 30px;'>E. Falhar vitória, empate ou derrota, mas ficar a 1 golo do resultado certo (Ex.: previsão 2x1, resultado 1x1, 2x2)</p>
+                              <p>Para que o jogo se mantenha competitivo até ao fim, a pontuação aumenta a cada fase do Mundial. Assim sendo, a tabela da pontuação é a seguinte:</p>
+
+                              <table style=" margin-left: auto; margin-right: auto; margin-top: 5px; margin-bottom: 15px;">
+                                  <thead>
+                                  <tr>
+                                      <th><b><span>Categoria</span>&nbsp;</th>
+                                      <th>A</th>
+                                      <th>B</th>
+                                      <th>C</th>
+                                      <th>D</th>
+                                      <th>E</th>
+                                  </tr>
+                                  </thead>
+                                  <tbody>
+                                  <tr>
+                                      <td><span>Fase de Grupos</span>&nbsp;</td>
+                                      <td><span>5 pontos</span></td>
+                                      <td><span>3 pontos</span></td>
+                                      <td><span>3 pontos</span></td>
+                                      <td><span>2 pontos</span></td>
+                                      <td><span>1 pontos</span></td>
+                                  </tr>
+                                  <tr>
+                                      <td><span>Oitavos</span>&nbsp;</td>
+                                      <td><span>10 pontos</span></td>
+                                      <td><span>6 pontos</span></td>
+                                      <td><span>6 pontos</span></td>
+                                      <td><span>4 pontos</span></td>
+                                      <td><span>2 pontos</span></td>
+                                  </tr>
+                                  <tr>
+                                      <td><span>Quartos</span>&nbsp;</td>
+                                      <td><span>15 pontos</span></td>
+                                      <td><span>9 pontos</span></td>
+                                      <td><span>9 pontos</span></td>
+                                      <td><span>6 pontos</span></td>
+                                      <td><span>3 pontos</span></td>
+                                  </tr>
+                                  <tr>
+                                      <td><span>¾ Lugar</span>&nbsp;</td>
+                                      <td><span>15 pontos</span></td>
+                                      <td><span>9 pontos</span></td>
+                                      <td><span>9 pontos</span></td>
+                                      <td><span>6 pontos</span></td>
+                                      <td><span>3 pontos</span></td>
+                                  </tr>
+                                  <tr>
+                                      <td><span>Meias</span>&nbsp;</td>
+                                      <td><span>20 pontos</span></td>
+                                      <td><span>12 pontos</span></td>
+                                      <td><span>12 pontos</span></td>
+                                      <td><span>8 pontos</span></td>
+                                      <td><span>4 pontos</span></td>
+                                  </tr>
+                                  <tr>
+                                      <td><span>Final</span>&nbsp;</td>
+                                      <td><span>25 pontos</span></td>
+                                      <td><span>15 pontos</span></td>
+                                      <td><span>15 pontos</span></td>
+                                      <td><span>10 pontos</span></td>
+                                      <td><span>5 pontos</span></td>
+                                  </tr>
+                                  </tbody>
+                              </table>
+
+                              <p>Tudo o que não encaixa numa das cinco categorias vale 0 pontos (logicamente). A pontuação vai sendo adicionada assim que cada jogo terminar. Poderás vê-la na aba das classificações. (E sim, a categoria B e C valem sempre os mesmos pontos).</p>
+
+
+                              <p style="text-decoration: underline; margin-top: 25px;">2. Prognósticos</p>
+                              <p>A pontuação dos prognósticos será adicionada no fim do mundial.</p>
+                              <p style='margin-left: 30px;'>•	Os quatro prémios relativos aos jogadores dão 15 pontos cada um se estiverem corretos.</p>
+                              <p style='margin-left: 30px;'>•	A pontuação relativa ao Top 4 é mais complexa, dado que se valoriza a aproximação ao que realmente acontecer no Mundial.</p>
+                              <p style='margin-left: 30px;'>A tabela é a seguinte:</p>
+
+                              <table style=" margin-left: auto; margin-right: auto; margin-top: 5px; margin-bottom: 15px;">
+                                  <thead>
+                                  <tr>
+                                      <th><b><span>Categoria</span>&nbsp;</th>
+                                      <th>Grupos</th>
+                                      <th>Oitavos</th>
+                                      <th>Quartos</th>
+                                      <th>4º lugar</th>
+                                      <th>3º lugar</th>
+                                      <th>VCampeão</th>
+                                      <th>Campeão</th>
+                                  </tr>
+                                  </thead>
+                                  <tbody>
+                                  <tr>
+                                      <td><span>4º Lugar</span>&nbsp;</td>
+                                      <td><span>0 pontos</span></td>
+                                      <td><span>5 pontos</span></td>
+                                      <td><span>10 pontos</span></td>
+                                      <td><span>15 pontos</span></td>
+                                      <td><span>15 pontos</span></td>
+                                      <td><span>15 pontos</span></td>
+                                      <td><span>15 pontos</span></td>
+                                  </tr>
+                                  <tr>
+                                      <td><span>3º Lugar</span>&nbsp;</td>
+                                      <td><span>0 pontos</span></td>
+                                      <td><span>5 pontos</span></td>
+                                      <td><span>10 pontos</span></td>
+                                      <td><span>15 pontos</span></td>
+                                      <td><span>15 pontos</span></td>
+                                      <td><span>15 pontos</span></td>
+                                      <td><span>15 pontos</span></td>
+                                  </tr>
+                                  <tr>
+                                      <td><span>VCampeão</span>&nbsp;</td>
+                                      <td><span>0 pontos</span></td>
+                                      <td><span>5 pontos</span></td>
+                                      <td><span>10 pontos</span></td>
+                                      <td><span>15 pontos</span></td>
+                                      <td><span>15 pontos</span></td>
+                                      <td><span>20 pontos</span></td>
+                                      <td><span>20 pontos</span></td>
+                                  </tr>
+                                  <tr>
+                                      <td><span>Campeão</span>&nbsp;</td>
+                                      <td><span>0 pontos</span></td>
+                                      <td><span>5 pontos</span></td>
+                                      <td><span>10 pontos</span></td>
+                                      <td><span>15 pontos</span></td>
+                                      <td><span>15 pontos</span></td>
+                                      <td><span>25 pontos</span></td>
+                                      <td><span>30 pontos</span></td>
+                                  </tr>
+                                  </tbody>
+                              </table>
+
+                              <p><strong>Exemplo:</strong> o Jogador X previu que o Campeão seria o Brasil, o Vice-campeão a Alemanha, em 3º Lugar ficava Portugal e em 4º a Argentina. No Mundial, sucedeu que o Brasil perdeu na final, a Alemanha ficou em 4º, Portugal perdeu nos Oitavos e a Argentina perdeu nos Quartos. Então o jogador ganha: 25 Pontos pelo Brasil, 15 Pontos pela Alemanha, 5 Pontos por Portugal e 10 pontos pela Argentina (Total: 55 pontos).</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              </div>
+          </section>
+
+          <section class="about_section layout_padding mt-4">
+              <div class="about_container">
+                  <div class="container">
+                      <div id="games_F">
+                          <div class="fixture-index tournament"><span>Jogos</span></div>
+                          <div class="rules_info">
+                              <p>Na aba “Jogos” podes colocar as tuas previsões para todos os jogos do Mundial! Tens decolocar um resultado exato.</p>
+                              <p><strong>Atenção:</strong></p>
+                              <p style='margin-left: 30px;'>As previsões fecham 1 hora antes do jogo começar!</p>
+                              <p style='margin-left: 30px;'>Nas fases a eliminar, as previsões não incluem prolongamento ou penaltis!</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </section>
+
+      </section>
     </section>
 
     <footer class="footer">

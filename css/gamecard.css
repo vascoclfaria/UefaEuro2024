@@ -1,0 +1,178 @@
+#tables{
+    /*Used for the games to be slightly above the page bottom in home.html*/
+    position: relative;
+    margin-top: 10px; /* Added to create the visual overlap */
+    z-index: 3;
+}
+
+.about_section{
+    position: relative;
+
+    z-index: 1;
+}
+
+.about_section .about_container {
+    width: 65%;
+    margin-left: auto;
+    margin-right: auto;
+    /* padding: 75px 45px; */
+    /* background-image: url(../images/about.jpg); */
+    background-size: auto 100%;
+    background-color: #fff;
+    background-position: center;
+    background-repeat: no-repeat;
+    /*margin-top: -130px;*/
+    margin-bottom: 50px;
+    -webkit-box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.21);
+    box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.21);
+    border-radius: 10px;
+}
+
+.about_section .about_container .container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+
+.about_container hr {
+    /* margin-top: 1rem;
+      margin-bottom: 1rem; */
+    margin: auto;
+    border: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    width: 85%;
+}
+
+
+.fixture {
+    width: 100%;
+    background-color: white;
+    border-radius: 0px 0px 10px 10px;
+    padding: 14px 0;
+    cursor: pointer;
+}
+
+.about_container .fixture:hover {
+    background-color: #f7f7f7;
+    transition: all 0.3s ease;
+}
+
+.fixture .team-img {
+    border-radius: 50%;
+    box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.21);
+    width: 20%;
+}
+
+.fixture .score-board {
+    overflow: auto;
+    display: table;
+    width: 100%;
+}
+
+.fixture ul li {
+    list-style: none;
+}
+
+.fixture .match-info {
+    width: 100%;
+    text-align: center;
+    font-size: 11px;
+    color: #999;
+    margin-bottom: 4px;
+    margin-top: 20px;
+}
+
+.index-info a {
+    color: #45a7eb;
+}
+
+.fixture .home,
+.fixture .away {
+    width: 40%;
+    text-align: center;
+    font-size: 14px;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.fixture .home {
+    text-align: center;
+    /* padding-right: 50px; */
+    z-index: -1;
+}
+
+.fixture .away {
+    text-align: center;
+    /* padding-left: 50px; */
+    z-index: -1;
+}
+
+.fixture .info {
+    z-index: 1;
+}
+
+.fixture .score {
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #eeeeee;
+    padding: 2px 0;
+    border-radius: 4px;
+}
+
+.fixture .time {
+    text-align: center;
+    font-size: 13px;
+    font-weight: bold;
+
+}
+
+.fixture .score .score-pk {
+    font-size: 12px;
+    color: #999999;
+    margin: 2px 0 0 0;
+    font-weight: 300;
+}
+
+.fixture-index {
+    width: 100%;
+    background-color: #fafafa;
+    border-bottom: 1px solid #dddddd;
+    border-radius: 10px 10px 0px 0px;
+    padding: 8px 0px;
+    text-align: center;
+    color: #333333;
+    font-family: 'Exo 2', sans-serif;
+    font-size: 14px;
+    margin-top: 20px;
+}
+
+.fixture-index h5 {
+    color: #ff6054;
+}
+
+.fixture-index:first-child {
+    margin-top: 0;
+}
+
+.fixture-index.next {
+    background-color: #fafafa;
+    border-bottom: 1px solid #dddddd;
+    color: #333333;
+}
+
+.fixture-index.end {
+    background: none;
+    border: none;
+    color: #999;
+}
+
+.fixture-index.tournament {
+    background-color: #fafafa;
+    border-bottom: 1px solid #dddddd;
+    color: #333333;
+    width: 100%;
+}

@@ -1,0 +1,97 @@
+.player_progressbar {
+    padding: 0px;
+}
+.flex-wrapper {
+    display: flex;
+    flex-flow: row nowrap;
+}
+.single-chart {
+    width: 33%;
+    justify-content: space-around;
+}
+.circular-chart {
+    display: block;
+    margin: 0px auto;
+    max-width: 80%;
+    max-height: 250px;
+}
+.circle-bg {
+    fill: none;
+    stroke: #eee;
+    stroke-width: 3.8;
+}
+.circle {
+    fill: none;
+    stroke-width: 2.8;
+    stroke-linecap: square;
+    animation: progress 1s ease-out forwards;
+}
+@keyframes progress {
+    0% {
+        stroke-dasharray: 0, 100;
+    }
+}
+/*.circular-chart.orange .circle {
+    stroke: #ff6c0c;
+}
+.circular-chart.green .circle {
+    stroke: #4cc790;
+}
+.circular-chart.blue .circle {
+    stroke: #ff6c0c;
+}*/
+.circular-chart.triple path:nth-child(2) {
+    stroke: #ff6c0c;
+    transition: stroke-width 0.5s ease;
+}
+.circular-chart.triple path:nth-child(3) {
+    stroke: #7433ff;
+    transition: stroke-width 0.5s ease;
+}
+.circular-chart.triple path:nth-child(4) {
+    stroke: #3cff3c;
+    transition: stroke-width 0.5s ease;
+}
+
+.circular-chart.triple path:nth-child(2):hover {
+    stroke: #e8630c;
+    stroke-width: 4;
+}
+.circular-chart.triple path:nth-child(3):hover {
+    stroke: #6229cf;
+    stroke-width: 4;
+}
+.circular-chart.triple path:nth-child(4):hover {
+    stroke: #35e635;
+    stroke-width: 4;
+}
+.percentage {
+    fill: #666;
+    font-family: sans-serif;
+    font-size: 0.5em;
+    text-anchor: middle;
+}
+
+.page_top .row{
+    margin-top: 30px;
+    /*height: 100%;*/
+}
+
+
+
+.row .hero_section {
+    text-align: center;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 40%;
+}
+
+.row .hero_section h1 {
+    font-size: 85px;
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+    margin: 0 auto;
+}

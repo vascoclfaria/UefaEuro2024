@@ -1,0 +1,78 @@
+input[type=number]{
+    text-align: center;
+}
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+.popup {
+    background-color: #ffffff;
+    width: 420px;
+    /* padding: 30px 40px;  */ /*top and bottom, right and left:*/
+    padding: 0px 40px 30px 40px; /*top, right, bottom, left*/
+    padding: 5px 5px 15px;
+    position: fixed;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    border-radius: 8px;
+    display: none;
+    text-align: center;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    z-index: 9999999999;
+}
+
+.popup .fixture {
+    cursor: default;
+}
+
+.popup .fixture .team-img {
+    border-radius: 50%;
+    box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.21);
+    width: 40%;
+}
+
+.popup .btn-save{
+    margin: 10px;
+    font-size: 15px;
+    width: 75%;
+    /* height: 50px; */
+    padding: 5px;
+    background-color: #6e0f2f;
+    color: white;
+    outline: none;
+    border-radius: 4px;
+    border: 1px solid transparent;
+}
+
+.btn-save:hover {
+    background: #0055dd;
+    color: #fff;
+    transition: 0.5s;
+}
+.btn-save:focus {
+    box-shadow: 0 0 0 5px rgba(0, 85, 255, 0.5)
+}
+
+.popup .row {
+    display: flex;
+    align-items: center; /* Vertically centers the items */
+    height: 100%; /* Ensure the row takes the full height of its container */
+}
+
+.score-input {
+    flex: 1; /* Make the input elements take equal space */
+    height: 35px; /* Ensure the input elements take the full height of the row */
+    widtfh: 33%; /* Ensure the separator takes the same width as the inputs */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+.score-separator {
+    width: 33%; /* Ensure the separator takes the same width as the inputs */
+    text-align: center; /* Center the text horizontally */
+    margin: 0; /* Remove default margin */
+    height: 100%; /* Ensure the separator takes the full height of the row */
+    display: flex;
+    align-items: center; /* Center the text vertically */
+    justify-content: center; /* Center the text horizontally */
+}
