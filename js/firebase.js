@@ -1078,13 +1078,13 @@ function newTableEntry(username, userdata, position) {
 
     let row = document.createElement('div');
     row.classList.add("row");
-   // if (username != _player) {
+    if (username != _player) {
         row.style.cursor = 'pointer';
         row.onclick = function (event) {
             localStorage.setItem("opponent", username);
             window.location.href = "opponentBets.html";
         }
-   // }
+    }
 
 
     let pos = document.createElement('div');

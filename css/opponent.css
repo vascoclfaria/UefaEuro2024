@@ -4,6 +4,7 @@
 
 .player_progressbar {
     padding: 0px;
+    display: none;
 }
 .flex-wrapper {
     display: flex;
@@ -88,8 +89,8 @@
 }
 
 
-
-.row .hero_section {
+/*!! Uncomment this and remove display none from player_progressbar !!*/
+/*.row .hero_section {
     text-align: center;
     color: #ffffff;
     display: flex;
@@ -104,14 +105,4 @@
     justify-content: space-between;
     width: 50%;
     margin: 0 auto;
-}
-
-
-#popup_info {
-    display: none;
-    position: absolute;
-    background-color: white;
-    border: 1px solid #000;
-    padding: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-}
+}*/
