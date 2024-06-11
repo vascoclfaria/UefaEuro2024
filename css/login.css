@@ -22,6 +22,9 @@
     justify-content: center;
     z-index: 1;
 }
+#formLogin{
+    overflow: hidden;
+}
 
 .loginCard {
     width: 400px;

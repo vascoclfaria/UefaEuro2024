@@ -64,7 +64,7 @@ switch (file) {
         document.getElementById('loginForm').style.display = "none";
         document.getElementById('loader').style.display = "flex";
         auth.onAuthStateChanged(function (user) {
-            /*if (user) {
+            if (user) {
                 let playerEmail = user.email;
                 db.ref('Users').once("value", function (snapshot) {
                     var users = snapshot.val();
@@ -83,10 +83,10 @@ switch (file) {
                         });
                     }
                 });
-            } else {*/
+            } else {
                 document.getElementById('loginForm').style.display = "block";
                 document.getElementById('loader').style.display = "none";
-            //}
+            }
         });
 
         //login player
@@ -656,13 +656,14 @@ switch (file) {
                                         var playerBet = getPlayerBet(game.bets, oppUsename);
                                         // console.log(gameID, ": ", playerBet)
 
-                                        newMatch("games_Ap",gameID, game.home, game.away, game.info, game.score, playerBet, games);
-                                        document.getElementById('tables').style.display = "block";
-                                        document.getElementById('msg').style.display = "none";
+
                                         //console.log(gameID, home_team, away_team, match_info, match_score, match_bet, matchesArr);
                                         if (!canBet(new Date(game.info))) {
                                             count++;
-                                            newMatch1(gameID, game.home, game.away, game.info, game.score, playerBet, games);
+                                            /*newMatch1(gameID, game.home, game.away, game.info, game.score, playerBet, games);
+                                            document.getElementById('tables').style.display = "block";
+                                            document.getElementById('msg').style.display = "none";*/
+                                            newMatch("games_Ap",gameID, game.home, game.away, game.info, game.score, playerBet, games);
                                             document.getElementById('tables').style.display = "block";
                                             document.getElementById('msg').style.display = "none";
                                         }
@@ -822,7 +823,8 @@ switch (file) {
                                     let barvalue = document.createElement('li');
                                     barvalue.classList.add('barvalue');
                                     //console.log(Math.round((val * 100)/sumValues))
-                                    barvalue.setAttribute("data-value", String.valueOf(Math.round((val * 100)/sumValues)))
+                                    let percentage = String.valueOf(Math.round((val * 100)/sumValues));
+                                    barvalue.setAttribute("data-value", percentage)
                                     barvalue.style.width = Math.round((val * 100)/sumValues) + "%";
 
                                     let barlegend = document.createElement('span');
@@ -1270,13 +1272,13 @@ function newMatch(posName, gameID, home_team, away_team, match_info, match_score
             //show game
             document.querySelector(".popup").style.display = "block";
         }
-    } else {
+    } /*else {
         init.onclick = function (event) {
             localStorage.setItem("game", gameID);
             // console.log(localStorage.getItem("username"))
             window.location.href = "game.html";
         }
-    }
+    }*/
 
     let scoreboar = document.createElement('div');
     scoreboar.classList.add("score-board");

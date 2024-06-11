@@ -55,6 +55,14 @@
     animation-duration: 2s;
     animation-fill-mode: forwards;
 }
+.graph-bar:hover {
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    background: #428D92;
+}
+
 #bar_section .barGraph .graph .barvalue:hover {
     background: #428D92;
 }

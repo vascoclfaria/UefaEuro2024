@@ -42,23 +42,23 @@
     stroke: #ff6c0c;
 }*/
 .circular-chart.quadruple path:nth-child(2) {
-    stroke: #ff6c0c;
+    stroke: #8f3b76;
     transition: stroke-width 0.5s ease;
 }
 .circular-chart.quadruple path:nth-child(3) {
-    stroke: #7433ff;
+    stroke: #c7417b;
     transition: stroke-width 0.5s ease;
 }
 .circular-chart.quadruple path:nth-child(4) {
-    stroke: #3cff3c;
+    stroke: #f5487f;
     transition: stroke-width 0.5s ease;
 }
 .circular-chart.quadruple path:nth-child(5) {
-    stroke: #0055dd;
+    stroke: #fa78a1;
     transition: stroke-width 0.5s ease;
 }
 
-.circular-chart.quadruple path:nth-child(2):hover {
+/*.circular-chart.quadruple path:nth-child(2):hover {
     stroke: #e8630c;
     stroke-width: 4;
 }
@@ -73,7 +73,7 @@
 .circular-chart.quadruple path:nth-child(5):hover {
     stroke: #00ffff;
     stroke-width: 4;
-}
+}*/
 
 .percentage {
     fill: #666;
@@ -104,4 +104,14 @@
     justify-content: space-between;
     width: 50%;
     margin: 0 auto;
+}
+
+
+#popup_info {
+    display: none;
+    position: absolute;
+    background-color: white;
+    border: 1px solid #000;
+    padding: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
 }

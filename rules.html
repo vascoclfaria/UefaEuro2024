@@ -279,7 +279,7 @@
     </section>-->
     <nav>
       <div class="logo">
-          <img src="images/2022_FIFA_World_Cup.png" alt="Logo Image">
+          <img src="images/2024_UEFA_Euro_Badge.png" alt="Logo Image">
       </div>
       <div class="hamburger">
           <svg class="ham hamRotate ham4" viewBox="0 0 100 100" width="80" onclick="this.classList.toggle('active')">
@@ -288,17 +288,18 @@
               <path class="line bottom" d="m 30,67 h 40 c 0,0 8.5,0.149796 8.5,-8.5 0,-8.649796 -8.5,-8.5 -8.5,-8.5 h -20 v 20" />
           </svg>
       </div>
-      <div class="overlay" id="overlay">
-        <div class="overlay-menu">
-            <ul>
-                <li><a href="home.html">Jogos</a></li>
-                <li><a href="classification.html">Pontuações</a></li>
-                <li><a href="profile.html">Perfil</a></li>
-                <li><a href="rules.html">Regras</a></li>
-                <li id="admin_link" ><a href="admin.html">Administrador</a></li>
-            </ul>
+        <div class="overlay" id="overlay">
+            <div class="overlay-menu">
+                <ul>
+                    <li><a href="home.html">Jogos</a></li>
+                    <li><a href="classification.html">Pontuações</a></li>
+                    <li><a href="opponentBets.html" onclick="localStorage.setItem('opponent', localStorage.getItem('username'));">Perfil</a></li>
+                    <li><a href="rules.html">Regras</a></li>
+                    <li id="admin_link" ><a href="admin.html">Administrador</a></li>
+                    <li id="signout" style="font-size: 30px;"><a href="index.html"><i class="fa fa-sign-out" style="font-size:24px"></i>SignOut</a></li>
+                </ul>
+            </div>
         </div>
-      </div>
     </nav>
 
     <section class="page_body">

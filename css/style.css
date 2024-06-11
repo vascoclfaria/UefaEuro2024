@@ -76,7 +76,8 @@ h1, h2 {
 .page_top{
     position: relative;
     height: calc(0.40 * 100vw);
-   /* background-image: url(../images/wpp1.jpg);*/
+    background-image: url(../images/wpp6.jpg);
+    background-size: cover;
     z-index: 1;
 }
 
@@ -203,7 +204,7 @@ nav {
 }*/
 .overlay {
     position: fixed;
-    background: #1abc9c;
+    background: #78295f; /*#1abc9c;*/
     top: 0;
     left: 0;
     width: 100%;
@@ -482,7 +483,10 @@ footer .footer-center i {
     vertical-align: middle;
 }
 
-footer .footer-center i.fa-envelope {
+footer .footer-center i.fa-map-marker,
+footer .footer-center i.fa-phone,
+footer .footer-center i.fa-envelope
+{
     font-size: 17px;
     line-height: 38px;
 }
@@ -531,7 +535,7 @@ footer .menu {
 }
 
 footer .menu a {
-    display: inline-block;
+    /*display: inline-block;*/
     line-height: 1.8;
     text-decoration: none;
     color: inherit;

@@ -31,7 +31,7 @@
 <body>
     <nav>
         <div class="logo">
-            <img src="images/2022_FIFA_World_Cup.png" alt="Logo Image">
+            <img src="images/2024_UEFA_Euro_Badge.png" alt="Logo Image">
         </div>
         <div class="hamburger">
             <svg class="ham hamRotate ham4" viewBox="0 0 100 100" width="80" onclick="this.classList.toggle('active')">
@@ -45,9 +45,10 @@
                 <ul>
                     <li><a href="home.html">Jogos</a></li>
                     <li><a href="classification.html">Pontuações</a></li>
-                    <li><a href="profile.html">Perfil</a></li>
+                    <li><a href="opponentBets.html" onclick="localStorage.setItem('opponent', localStorage.getItem('username'));">Perfil</a></li>
                     <li><a href="rules.html">Regras</a></li>
                     <li id="admin_link" ><a href="admin.html">Administrador</a></li>
+                    <li id="signout" style="font-size: 30px;"><a href="index.html"><i class="fa fa-sign-out" style="font-size:24px"></i>SignOut</a></li>
                 </ul>
             </div>
         </div>
@@ -164,6 +165,7 @@
       </div>
     </footer>
 
+    <div id="popup">This is a popup!</div>
 
 
     <!-- <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script> -->
@@ -179,6 +181,23 @@
         // Move circle2 to the end of the SVG element to ensure it's on top
         const svg = circle2.closest('svg');
         svg.appendChild(circle2);*/
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const hoverElement = document.getElementById('circle2');
+            const popup = document.getElementById('popup');
+
+            hoverElement.addEventListener('mouseenter', function (event) {
+                popup.style.display = 'block';
+                popup.style.position = 'fixed';
+                popup.style.left = '300px'; // Specific X coordinate
+                popup.style.top = '100px'; // Specific Y coordinate
+                popup.style.cursor = 'pointer';
+            });
+
+            hoverElement.addEventListener('mouseleave', function () {
+                popup.style.display = 'none';
+            });
+        });
 
     </script>
 
