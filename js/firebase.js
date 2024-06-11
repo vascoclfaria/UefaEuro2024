@@ -127,11 +127,29 @@ switch (file) {
             // console.log(todaysDate, tomorrowsDate)
 
             //Populate the gamesOfTheDay dict with the games of today
+            const todayDate = new Date();
+            // Get the year, month, and day
+            const year1 = todayDate.getFullYear();
+            const month1 = String(todayDate.getMonth() + 1).padStart(2, '0'); // Months are zero-based, so add 1
+            const day1 = String(todayDate.getDate()).padStart(2, '0'); // Pad single digit days with a leading zero
+            // Format the date as yyyy-mm-dd
+            const today = year1+'-'+month1+'-'+day1;
+
+            const tomorrowDate = new Date(todayDate);
+            tomorrowDate.setDate(tomorrowDate.getDate() + 1);
+            //Populate the gamesOfTheDay dict with the games of today
+            // Get the year, month, and day
+            const year2 = tomorrowDate.getFullYear();
+            const month2 = String(tomorrowDate.getMonth() + 1).padStart(2, '0'); // Months are zero-based, so add 1
+            const day2 = String(tomorrowDate.getDate()).padStart(2, '0'); // Pad single digit days with a leading zero
+            // Format the date as yyyy-mm-dd
+            const tomorrow = year2+'-'+month2+'-'+day2;
+
             for (let p in phases) {
                 gamesDB.child(p)
                 .orderByChild("info")
-                .startAt("2022-11-21")
-                .endAt("2022-11-22")
+                .startAt(/*"2022-11-21"*/today)
+                .endAt(/*"2022-11-22"*/tomorrow)
                 .on("child_added", function(snapshot) {
                     var gameID = snapshot.key;
                     gamesDB.child(p).child(gameID).once("value", function(snapshot) {
@@ -139,10 +157,11 @@ switch (file) {
                         gamesOfTheDay[gameID] = game;
                     });
                     
-                    // console.log("QUERY:", gameOftheday);
+                    //console.log("QUERY:", gameOftheday);
                     
                 });
                 console.log("QUERY:", gamesOfTheDay);
+                console.log("DATES:", today, tomorrow);
             }
             console.log("QUERY1:", gamesOfTheDay);
 
@@ -1532,7 +1551,7 @@ function canBet(gameDate) {
     let todaysDate = new Date();
     let diffInMs = (gameDate - todaysDate) / (1000 * 60);
     // console.log("Min: ", diffInMs);
-    return true;//diffInMs > 60 ? true : false;
+    return diffInMs > 0 ? true : false;
 }
 
 
