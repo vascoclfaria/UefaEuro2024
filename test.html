@@ -50,7 +50,7 @@
 </html>-->
 
 
-<!DOCTYPE html>
+<!--<!DOCTYPE html>
 <html>
 <head>
     <title>skew</title>
@@ -512,9 +512,9 @@
         this.classList.toggle('active');
         document.getElementById('overlay').classList.toggle('open');
     });
-</script>-->
+</script>
 </body>
-</html>
+</html>-->
 
 
 
@@ -573,4 +573,136 @@
 </script>
 </body>
 </html>-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVG Circular Progress Bars</title>
+    <style>
+        @keyframes progress {
+            0% { stroke-dasharray: 0, 100; }
+        }
+
+        .player_progressbar {
+            padding: 0px;
+        }
+        .flex-wrapper {
+            display: flex;
+            flex-flow: row nowrap;
+        }
+        .single-chart {
+            width: 33%;
+            justify-content: space-around;
+        }
+        .circular-chart {
+            display: block;
+            margin: 0px auto;
+            max-width: 80%;
+            max-height: 250px;
+        }
+        .circle-bg {
+            fill: none;
+            stroke: #eee;
+            stroke-width: 3.8;
+        }
+        .circle1, .circle2, .circle3, .circle4 {
+            fill: none;
+            stroke-width: 2.8;
+            stroke-linecap: square;
+            visibility: hidden;
+            animation: progress 2s forwards;
+            filter: url(#shadow); /* Apply shadow filter */
+        }
+        .circular-chart.quadruple path:nth-child(2) {
+            stroke: #ff6c0c;
+            transition: stroke-width 0.5s ease;
+        }
+        .circular-chart.quadruple path:nth-child(3) {
+            stroke: #7433ff;
+            transition: stroke-width 0.5s ease;
+        }
+        .circular-chart.quadruple path:nth-child(4) {
+            stroke: #3cff3c;
+            transition: stroke-width 0.5s ease;
+        }
+        .circular-chart.quadruple path:nth-child(5) {
+            stroke: #0055dd;
+            transition: stroke-width 0.5s ease;
+        }
+        .circular-chart.quadruple path:nth-child(2):hover {
+            stroke: #e8630c;
+            stroke-width: 4;
+        }
+        .circular-chart.quadruple path:nth-child(3):hover {
+            stroke: #6229cf;
+            stroke-width: 4;
+        }
+        .circular-chart.quadruple path:nth-child(4):hover {
+            stroke: #35e635;
+            stroke-width: 4;
+        }
+        .circular-chart.quadruple path:nth-child(5):hover {
+            stroke: #00ffff;
+            stroke-width: 4;
+        }
+        .percentage {
+            fill: #666;
+            font-family: sans-serif;
+            font-size: 0.5em;
+            text-anchor: middle;
+        }
+        .page_top .row {
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+<section class="page_top">
+    <div class="row">
+        <div class="player_progressbar">
+            <svg viewBox="0 0 36 36" class="circular-chart quadruple">
+                <defs>
+                    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+                        <feDropShadow dx="1" dy="1" stdDeviation="2" flood-color="#000" flood-opacity="0.5"/>
+                    </filter>
+                </defs>
+                <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                <path id="circle1" class="circle1"/>
+                <path id="circle2" class="circle2"/>
+                <path id="circle3" class="circle3"/>
+                <path id="circle4" class="circle4"/>
+            </svg>
+        </div>
+    </div>
+</section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const circles = document.querySelectorAll('.player_progressbar path[id^="circle"]');
+
+        const values = [25, 25, 25, 25]; // Adjust these values as needed
+        const total = values.reduce((acc, val) => acc + val, 0);
+        const percentages = values.map(value => (value / total) * 100);
+        const degrees = percentages.map(percentage => (percentage / 100) * 360);
+
+        let currentRotation = 0;
+
+        circles.forEach((circle, index) => {
+            const dasharrayValue = `${percentages[index]} 100`;
+
+            circle.setAttribute('stroke-dasharray', dasharrayValue);
+            circle.setAttribute('d', 'M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831');
+            circle.style.visibility = 'visible';
+            circle.style.animationDelay = `${index * 2}s`;
+            circle.setAttribute('transform', `rotate(${currentRotation} 18 18)`);
+
+            currentRotation += degrees[index];
+        });
+    });
+</script>
+</body>
+</html>
 

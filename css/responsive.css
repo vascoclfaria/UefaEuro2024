@@ -104,7 +104,11 @@
     }
 
     .hero_detail {
-       /* padding-top: 50px;*/
+       padding-top: 45px;
+    }
+
+    .row .hero_detail {
+        padding-top: 0;
     }
 
     .game-wallpaper .away-team {
@@ -230,7 +234,7 @@
     }
 
     .hero_section h1 {
-        font-size: 58px;
+        font-size: 40px;
     }
 
     .product_section .container {
@@ -271,6 +275,10 @@
     .game-wallpaper .middle-shadow{
         background: linear-gradient(120deg, transparent 0%, Black 50%, transparent 100%);
         /*transform: translateX(55%)*/
+    }
+
+    #signout{
+        left: 40%;
     }
 }
 

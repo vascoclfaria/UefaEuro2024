@@ -25,13 +25,37 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <!-- Custom styles for this template -->
-  <link href="css/style_old.css" rel="stylesheet" />
+  <link href="css/style.css" rel="stylesheet" />
   <!-- responsive style -->
   <link href="css/responsive.css" rel="stylesheet" />
 </head>
 
 <body>
-  <section class="admin_section">
+  <nav>
+    <div class="logo">
+      <img src="images/2022_FIFA_World_Cup.png" alt="Logo Image">
+    </div>
+    <div class="hamburger">
+      <svg class="ham hamRotate ham4" viewBox="0 0 100 100" width="80" onclick="this.classList.toggle('active')">
+        <path class="line top" d="m 70,33 h -40 c 0,0 -8.5,-0.149796 -8.5,8.5 0,8.649796 8.5,8.5 8.5,8.5 h 20 v -20" />
+        <path class="line middle" d="m 70,50 h -40" />
+        <path class="line bottom" d="m 30,67 h 40 c 0,0 8.5,0.149796 8.5,-8.5 0,-8.649796 -8.5,-8.5 -8.5,-8.5 h -20 v 20" />
+      </svg>
+    </div>
+    <div class="overlay" id="overlay">
+      <div class="overlay-menu">
+        <ul>
+          <li><a href="home.html">Jogos</a></li>
+          <li><a href="classification.html">Pontuações</a></li>
+          <li id="admin_link" ><a href="admin.html">Update</a></li>
+          <li><a href="profile.html">Perfil</a></li>
+          <li><a href="rules.html">Regras</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section class="admin_section" style="margin-top: 10%;">
     <h1>Add Game</h1>
     <form action="" id="gameForm">
       <label>Home</label><br>
@@ -95,7 +119,7 @@
         <option value="4)Semi-Final">
         <option value="5)Final">
       </datalist>
-      <button type="submit">Submit</button>
+      <button type="submit" class="paper paper-raise">Submit</button>
     </form>
     <hr class="solid mt-3">
   </section>

@@ -23,7 +23,6 @@
     <!-- <link rel="stylesheet" type="text/css" href="css/bootstrap.css" /> -->
     <!-- Custom styles for this template -->
     <link href="css/style.css" rel="stylesheet" />
-    <link href="css/test.css" rel="stylesheet" />
     <!-- responsive style -->
     <link href="css/responsive.css" rel="stylesheet" />
 
@@ -46,16 +45,16 @@
                 <ul>
                     <li><a href="home.html">Jogos</a></li>
                     <li><a href="classification.html">Pontuações</a></li>
-                    <li id="admin_link" ><a href="admin.html">Update</a></li>
                     <li><a href="profile.html">Perfil</a></li>
                     <li><a href="rules.html">Regras</a></li>
+                    <li id="admin_link" ><a href="admin.html">Administrador</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
     <section class="page_body">
-        <section class="page_top">
+        <!--<section class="page_top">
             <div class="hero_section ">
                 <div class="hero_detail">
                   <h1 id="oppUsername"></h1>
@@ -83,19 +82,28 @@
                 a 15.9155 15.9155 0 0 1 0 -31.831"
                     />
                 </svg>
-                <!--  transform="translate(16, 16) rotate(-180 1 1) translate(-20, -20)"  -->
-
+            </div>
+        </section>-->
+        <section class="page_top">
+            <div class="row">
+                <div class="player_progressbar">
+                    <svg viewBox="0 0 36 36" class="circular-chart quadruple">
+                        <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                        <path id="circle1" class="circle1"/>
+                        <path id="circle2" class="circle2"/>
+                        <path id="circle3" class="circle3"/>
+                        <path id="circle4" class="circle4"/>
+                    </svg>
+                    <!--  transform="translate(16, 16) rotate(-180 1 1) translate(-20, -20)"  -->
+                </div>
+                <div class="hero_section ">
+                    <div class="hero_detail">
+                        <h1 id="username"></h1>
+                    </div>
+                </div>
             </div>
         </section>
         <section class="page_bottom">
-            <div id="signout">
-                <button class="signout_btn">
-                    <span class="circle" aria-hidden="true">
-                      <span class="icon arrow"></span>
-                    </span>
-                    <span class="button-text">Learn More</span>
-                </button>
-            </div>
             <section id="tables"></section>
 
             <section id="loader" class="spinner">
@@ -192,6 +200,7 @@
     <!-- <script type="text/javascript" src="js/bootstrap.js"></script> -->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <script src="js/firebase.js"></script>
     <script src="js/general.js"></script>
 

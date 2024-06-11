@@ -45,7 +45,9 @@
                 <ul>
                     <li><a href="home.html">Jogos</a></li>
                     <li><a href="classification.html">Pontuações</a></li>
+                    <li><a href="profile.html">Perfil</a></li>
                     <li><a href="rules.html">Regras</a></li>
+                    <li id="admin_link" ><a href="admin.html">Administrador</a></li>
                 </ul>
             </div>
         </div>
@@ -55,11 +57,12 @@
         <section class="page_top">
             <div class="row">
                 <div class="player_progressbar">
-                    <svg viewBox="0 0 36 36" class="circular-chart triple">
+                    <svg viewBox="0 0 36 36" class="circular-chart quadruple">
                         <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
-                        <path class="circle" stroke-dasharray="50, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
-                        <path class="circle" stroke-dasharray="25, 100" transform="rotate(-180 18 18)" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
-                        <path class="circle" stroke-dasharray="25, 100" transform="rotate(-90 18 18)" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                        <path id="circle1" class="circle1"/>
+                        <path id="circle2" class="circle2"/>
+                        <path id="circle3" class="circle3"/>
+                        <path id="circle4" class="circle4"/>
                     </svg>
                     <!--  transform="translate(16, 16) rotate(-180 1 1) translate(-20, -20)"  -->
                 </div>
@@ -171,6 +174,11 @@
     <script src="js/general.js"></script>
 
     <script>
+        /*const circle2 = document.querySelector('.circle2');
+
+        // Move circle2 to the end of the SVG element to ensure it's on top
+        const svg = circle2.closest('svg');
+        svg.appendChild(circle2);*/
 
     </script>
 

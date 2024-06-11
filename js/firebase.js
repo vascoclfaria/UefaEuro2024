@@ -35,9 +35,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 const listItems = document.querySelectorAll('.overlay ul li');
                 listItems.forEach(item => {
+                    item.style.height = 'calc(100% / 6)';
+                });
+            }
+            else{
+                const listItems = document.querySelectorAll('.overlay ul li');
+                listItems.forEach(item => {
                     item.style.height = 'calc(100% / 5)';
                 });
             }
+
+            document.getElementById('signout').addEventListener('click', function (){
+                logOut();
+            });
         }
     });
 });
@@ -351,8 +361,9 @@ switch (file) {
                         var usersDB = db.ref("Users");
                         usersDB.once("value", function (snapshot) {
                             var users = snapshot.val();
-                            // console.log("Bets: ", users);
+                            //console.log("users: ", users);
                             for (let u in users) {
+                                console.log("user: ", u);
                                 usersDB.child(u).once("value", function (snapshot) {
                                     var user = snapshot.val();
                                     // console.log("Bets: ", user);
@@ -363,7 +374,7 @@ switch (file) {
                                     var diffGoals = parseInt(user.diffGoals);
                                     var winTieDef = parseInt(user.winTieDef);
                                     var oneAway = parseInt(user.oneAway);
-                                    var totalgames = parseInt(user.totalGames);
+                                    var totalgames = parseInt(user.totalgames);
 
                                     // var points = 0; //USAR ESTA LINHA SO PARA TESTES AO SITE
                                     //console.log(u)
@@ -376,14 +387,17 @@ switch (file) {
                                             var sx = parseInt(score.split("-")[0]);
                                             var sy = parseInt(score.split("-")[1]);
                                             // console.log("VALOR: ", Math.abs(x - y), x, y)
-                                            //console.log("PHASE: ", phase)
+                                            console.log("PHASE: ", phase)
                                             let pointsTable = getPointsTable(phase);
                                             console.log(pointsTable)
 
+                                            console.log(points);
                                             if (correctPrediction(score, bet)) {
                                                 if (x == sx && y == sy) {
+                                                    console.log(points);
                                                     points += pointsTable["correct"];
                                                     correct += 1;
+                                                    console.log(pointsTable["correct"]);
                                                 }   //             Diferença de golos                                         Ficar a 1 golo do resultado certo
                                                 else if ((Math.abs(x - y) == Math.abs(sx - sy)) || (x == sx && y == sy + 1) || (x == sx && y == sy - 1) || (x == sx + 1 && y == sy) || (x == sx - 1 && y == sy)) {
                                                     points += pointsTable["diffGoals"];
@@ -484,6 +498,112 @@ switch (file) {
         // oppName.innerHTML = oppUsename;
         // oppName.style.textAlign = "center";
 
+        //show opponent statusgraph
+        var usersDB = db.ref("Users");
+        usersDB.child(oppUsename).once("value", function (snapshot) {
+            var user = snapshot.val();
+            console.log("User: ", user);
+            var correct = parseInt(user.correct);
+            var diffGoals = parseInt(user.diffGoals);
+            var winTieDef = parseInt(user.winTieDef);
+            var oneAway = parseInt(user.oneAway);
+            var totalgames = parseInt(user.totalgames);
+
+            //console.log(correct, diffGoals, winTieDef, oneAway, totalgames);
+
+            let percentage;
+            let degrees;
+            let circle;
+            let preDegree = 0;
+            if(correct >= 1){
+                circle = document.getElementById('circle1');
+
+                let percentage = (correct / totalgames) * 100; // Calculate percentages
+                let degrees = (percentage / 100) * 360; // Convert percentages to degrees
+                console.log(percentage, degrees);
+
+                circle.setAttribute('stroke-dasharray', percentage + ' 100');
+                circle.setAttribute('d',"M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831");
+                circle.style.visibility = 'visible';
+
+                preDegree += degrees;
+            }
+            if(diffGoals >= 1){
+                circle = document.getElementById('circle2');
+                circle.setAttribute('transform', 'rotate('+preDegree+' 18 18)');
+
+                let percentage = (diffGoals / totalgames) * 100; // Calculate percentages
+                let degrees = (percentage / 100) * 360; // Convert percentages to degrees
+                console.log(percentage, degrees);
+
+                document.getElementById('circle2').style.animationDelay = '1s'//'1.95s'; // Adjust this value as needed
+
+                // Listen for the animationend event on circle1
+                document.getElementById('circle1').addEventListener('animationend', () => {
+                    // Start animation of circle2
+                    document.getElementById('circle2').style.visibility = 'visible';
+                });
+
+                setTimeout(() => {
+                    document.getElementById('circle2').setAttribute('stroke-dasharray', percentage + ' 100');
+                    document.getElementById('circle2').setAttribute('d',"M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831");
+                    //circle.style.visibility = 'visible';
+                }, 0);
+
+                preDegree += degrees
+                console.log(preDegree)
+            }
+            if(winTieDef >= 1) {
+                circle = document.getElementById('circle3');
+                document.getElementById('circle3').setAttribute('transform', 'rotate(' + preDegree + ' 18 18)');
+
+                let percentage = (winTieDef / totalgames) * 100; // Calculate percentages
+                let degrees = (percentage / 100) * 360; // Convert percentages to degrees
+                console.log(percentage, degrees);
+
+                document.getElementById('circle3').style.animationDelay = '2s'; // Adjust this value as needed
+
+                // Listen for the animationend event on circle1
+                document.getElementById('circle2').addEventListener('animationend', () => {
+                    // Start animation of circle2
+                    document.getElementById('circle3').style.visibility = 'visible';
+                });
+
+                setTimeout(() => {
+                    document.getElementById('circle3').setAttribute('stroke-dasharray', percentage + ' 100');
+                    document.getElementById('circle3').setAttribute('d', "M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 "); //a 15.9155 15.9155 0 0 1 0 -31.831
+                    //circle.style.visibility = 'visible';
+                }, 2000);
+                preDegree += degrees
+                console.log(preDegree)
+            }
+            if(oneAway >= 1) {
+                circle = document.getElementById('circle4');
+                document.getElementById('circle4').setAttribute('transform', 'rotate(' + preDegree + ' 18 18)');
+
+                let percentage = (oneAway / totalgames) * 100; // Calculate percentages
+                let degrees = (percentage / 100) * 360; // Convert percentages to degrees
+                console.log(percentage, degrees);
+
+                document.getElementById('circle4').style.animationDelay = '3s'; // Adjust this value as needed
+
+                // Listen for the animationend event on circle1
+                document.getElementById('circle3').addEventListener('animationend', () => {
+                    // Start animation of circle2
+                    document.getElementById('circle4').style.visibility = 'visible';
+                });
+
+                setTimeout(() => {
+                    document.getElementById('circle4').setAttribute('stroke-dasharray', percentage + ' 100');
+                    document.getElementById('circle4').setAttribute('d', "M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831");
+                    //circle.style.visibility = 'visible';
+                }, 3000);
+                preDegree += degrees
+                console.log(preDegree)
+            }
+
+        });
+
         //show opponent bets
         document.getElementById('tables').style.display = "none";
         document.getElementById('msg').style.display = "none";
@@ -492,18 +612,18 @@ switch (file) {
         newSection("Apostas")
         usersDB.once("value", function (snapshot) {
             var bets = snapshot.val();
-            console.log("Apostas: ", bets);
+            //console.log("Apostas: ", bets);
             for (let b in bets) {
                 //console.log("gameBet",b);
                 gamesDB.once("value", function (snapshot) {
                     var fase = snapshot.val();
-                    console.log("Fase: ", fase);
+                    //console.log("Fase: ", fase);
                     for (let f in fase) {
-                        console.log('FASE', f);
+                        //console.log('FASE', f);
                         gamesDB.child(f).once("value", function (snapshot) {
                             var games = snapshot.val();
                             var gamesKeys = Object.keys(games);
-                            console.log("games: ", games);
+                            //console.log("games: ", games);
                             for (let g in games) {
                                 //console.log(g, b)
                                 if (g === b) {
@@ -741,13 +861,86 @@ switch (file) {
             // console.log("game: ", game);
         });
     case 'profile.html':
-        document.getElementById('container').addEventListener('click', function (){
-            auth.signOut().then(() => {
-                console.log('User signed out');
-                window.location.href = "index.html";
-            }).catch((error) => {
-                console.error('Error signing out: ', error);
-            });
+        //check if is any user login in to access this page
+        checkAuthorisation();
+
+        let username = localStorage.getItem("username"); //oppUsename
+
+        //Show opponent name at the top
+        let name = document.getElementById('username');
+        let letters = username.split('');
+        for (let l in letters) {
+            let span = document.createElement('span');
+            //console.log(arrLetters[l])
+            span.innerHTML = letters[l];
+            //console.log(span)
+            name.appendChild(span);
+        }
+
+        //show opponent bets
+        document.getElementById('tables').style.display = "none";
+        document.getElementById('msg').style.display = "none";
+        var usersDB = db.ref("Users/" + username + "/bets");
+        let count1 = 0;
+        newSection("Apostas")
+        usersDB.once("value", function (snapshot) {
+            var bets = snapshot.val();
+            //console.log("Apostas: ", bets);
+            for (let b in bets) {
+                //console.log("gameBet",b);
+                gamesDB.once("value", function (snapshot) {
+                    var fase = snapshot.val();
+                    //console.log("Fase: ", fase);
+                    for (let f in fase) {
+                        //console.log('FASE', f);
+                        gamesDB.child(f).once("value", function (snapshot) {
+                            var games = snapshot.val();
+                            var gamesKeys = Object.keys(games);
+                            //console.log("games: ", games);
+                            for (let g in games) {
+                                //console.log(g, b)
+                                if (g === b) {
+                                    let p1 = f.split(")")[1];
+                                    //newSection(p1);
+                                    //console.log("+1 JOGO ")
+                                    gamesDB.child(f).child(g).once("value", function (snapshot) {
+                                        var game = snapshot.val();
+                                        var gameID = "game_" + count1;
+                                        var posName = "games_" + p1.charAt(0)+p1.charAt(1);
+                                        var playerBet = getPlayerBet(game.bets, oppUsename);
+                                        // console.log(gameID, ": ", playerBet)
+
+                                        newMatch("games_Ap",gameID, game.home, game.away, game.info, game.score, playerBet, games);
+                                        document.getElementById('tables').style.display = "block";
+                                        document.getElementById('msg').style.display = "none";
+                                        //console.log(gameID, home_team, away_team, match_info, match_score, match_bet, matchesArr);
+                                        if (!canBet(new Date(game.info))) {
+                                            count1++;
+                                            newMatch1(gameID, game.home, game.away, game.info, game.score, playerBet, games);
+                                            document.getElementById('tables').style.display = "block";
+                                            document.getElementById('msg').style.display = "none";
+                                        }
+                                        // else {
+                                        //     document.getElementById('msg').style.display = "block";
+                                        // }
+
+                                        // console.log(g, gamesKeys[gamesKeys.length - 1])
+                                        // if(g === gamesKeys[gamesKeys.length - 1]){
+                                        //     console.log("SOU O ULTIMO ", count)
+                                        //     document.getElementById('msg').style.display = "block";
+                                        // }
+                                    });
+                                } else if (g === gamesKeys[gamesKeys.length - 1] && count1 == 0) {
+                                    //console.log("SOU O ULTIMO ", count1)
+                                    document.getElementById('msg').style.display = "block";
+                                }
+                            }
+                        });
+                    }
+                    // console.log("game: ", game);
+                });
+            }
+            document.getElementById('loader').style.display = "none";
         });
         break;
     default:
@@ -762,7 +955,7 @@ switch (file) {
 function getPointsTable(competitionPhase) {
     let table = {}
     switch (competitionPhase) {
-        case "Fase de Grupos":
+        case "1)Fase de Grupos":
             table = {
                 "correct": 5,
                 "diffGoals": 3,
@@ -770,7 +963,7 @@ function getPointsTable(competitionPhase) {
                 "oneAway": 1
             };
             break;
-        case "Oitavos":
+        case "2)Oitavos":
             table = {
                 "correct": 10,
                 "diffGoals": 6,
@@ -778,7 +971,7 @@ function getPointsTable(competitionPhase) {
                 "oneAway": 2
             };
             break;
-        case "Quartos":
+        case "3)Quartos":
             table = {
                 "correct": 15,
                 "diffGoals": 9,
@@ -786,7 +979,7 @@ function getPointsTable(competitionPhase) {
                 "oneAway": 3
             };
             break;
-        case "Semi-Final":
+        case "4)Semi-Final":
             table = {
                 "correct": 20,
                 "diffGoals": 12,
@@ -794,7 +987,7 @@ function getPointsTable(competitionPhase) {
                 "oneAway": 4
             };
             break;
-        case "Final":
+        case "5)Final":
             table = {
                 "correct": 25,
                 "diffGoals": 15,
@@ -1339,7 +1532,7 @@ function canBet(gameDate) {
     let todaysDate = new Date();
     let diffInMs = (gameDate - todaysDate) / (1000 * 60);
     // console.log("Min: ", diffInMs);
-    return diffInMs > 60 ? true : false;
+    return true;//diffInMs > 60 ? true : false;
 }
 
 
