@@ -532,10 +532,61 @@ switch (file) {
 
             let percentage;
             let degrees;
-            let circle;
+            let circle = document.getElementById('circle');
+            let textBox = document.getElementById('text-box');
             let preDegree = 0;
+
+            circle.addEventListener('mouseenter', (event) => {
+                const mouseX = event.clientX;
+                const mouseY = event.clientY;
+                const viewportWidth = window.innerWidth;
+                const viewportHeight = window.innerHeight;
+                let textBoxX = mouseX + 10;
+                let textBoxY = mouseY + 10;
+
+                if (textBoxX + textBox.offsetWidth > viewportWidth) {
+                    textBoxX = viewportWidth - textBox.offsetWidth - 10;
+                }
+
+                if (textBoxY + textBox.offsetHeight > viewportHeight) {
+                    textBoxY = viewportHeight - textBox.offsetHeight - 10;
+                }
+
+                let failedgames = totalgames-(correct+diffGoals+winTieDef+oneAway);
+                textBox.innerHTML = "Previsões Erradas:<br>"+ failedgames + " jogos";
+                textBox.style.left = textBoxX + 'px';
+                textBox.style.top = textBoxY + 'px';
+                textBox.style.display = 'block';
+            });
+
+            circle.addEventListener('mouseout', () => {
+                textBox.style.display = 'none'; // Hide the text box when the mouse leaves the circle
+            });
+
             if(correct >= 1){
                 circle = document.getElementById('circle1');
+
+                circle.addEventListener('mouseenter', (event) => {
+                    const mouseX = event.clientX;
+                    const mouseY = event.clientY;
+                    const viewportWidth = window.innerWidth;
+                    const viewportHeight = window.innerHeight;
+                    let textBoxX = mouseX + 10;
+                    let textBoxY = mouseY + 10;
+
+                    if (textBoxX + textBox.offsetWidth > viewportWidth) {
+                        textBoxX = viewportWidth - textBox.offsetWidth - 10;
+                    }
+
+                    if (textBoxY + textBox.offsetHeight > viewportHeight) {
+                        textBoxY = viewportHeight - textBox.offsetHeight - 10;
+                    }
+
+                    textBox.innerHTML = "Previsões A:<br>"+ diffGoals+ " jogos";
+                    textBox.style.left = textBoxX + 'px';
+                    textBox.style.top = textBoxY + 'px';
+                    textBox.style.display = 'block';
+                });
 
                 let percentage = (correct / totalgames) * 100; // Calculate percentages
                 let degrees = (percentage / 100) * 360; // Convert percentages to degrees
@@ -550,6 +601,32 @@ switch (file) {
             if(diffGoals >= 1){
                 circle = document.getElementById('circle2');
                 circle.setAttribute('transform', 'rotate('+preDegree+' 18 18)');
+
+                circle.addEventListener('mouseenter', (event) => {
+                    const mouseX = event.clientX;
+                    const mouseY = event.clientY;
+                    const viewportWidth = window.innerWidth;
+                    const viewportHeight = window.innerHeight;
+                    let textBoxX = mouseX + 10;
+                    let textBoxY = mouseY + 10;
+
+                    if (textBoxX + textBox.offsetWidth > viewportWidth) {
+                        textBoxX = viewportWidth - textBox.offsetWidth - 10;
+                    }
+
+                    if (textBoxY + textBox.offsetHeight > viewportHeight) {
+                        textBoxY = viewportHeight - textBox.offsetHeight - 10;
+                    }
+
+                    textBox.innerHTML = "Previsões B e C:<br>"+ diffGoals+ " jogos";
+                    textBox.style.left = textBoxX + 'px';
+                    textBox.style.top = textBoxY + 'px';
+                    textBox.style.display = 'block';
+                });
+
+                circle.addEventListener('mouseout', () => {
+                    textBox.style.display = 'none'; // Hide the text box when the mouse leaves the circle
+                });
 
                 let percentage = (diffGoals / totalgames) * 100; // Calculate percentages
                 let degrees = (percentage / 100) * 360; // Convert percentages to degrees
@@ -574,7 +651,34 @@ switch (file) {
             }
             if(winTieDef >= 1) {
                 circle = document.getElementById('circle3');
-                document.getElementById('circle3').setAttribute('transform', 'rotate(' + preDegree + ' 18 18)');
+                circle.setAttribute('transform', 'rotate(' + preDegree + ' 18 18)');
+
+                circle.addEventListener('mouseenter', (event) => {
+                    const mouseX = event.clientX;
+                    const mouseY = event.clientY;
+                    const viewportWidth = window.innerWidth;
+                    const viewportHeight = window.innerHeight;
+                    let textBoxX = mouseX + 10;
+                    let textBoxY = mouseY + 10;
+
+                    if (textBoxX + textBox.offsetWidth > viewportWidth) {
+                        textBoxX = viewportWidth - textBox.offsetWidth - 10;
+                    }
+
+                    if (textBoxY + textBox.offsetHeight > viewportHeight) {
+                        textBoxY = viewportHeight - textBox.offsetHeight - 10;
+                    }
+
+                    textBox.innerHTML = "Previsões D:<br>"+ winTieDef+ " jogos";
+                    textBox.style.left = textBoxX + 'px';
+                    textBox.style.top = textBoxY + 'px';
+                    textBox.style.display = 'block';
+                });
+
+                circle.addEventListener('mouseout', () => {
+                    textBox.style.display = 'none'; // Hide the text box when the mouse leaves the circle
+                });
+
 
                 let percentage = (winTieDef / totalgames) * 100; // Calculate percentages
                 let degrees = (percentage / 100) * 360; // Convert percentages to degrees
@@ -598,7 +702,33 @@ switch (file) {
             }
             if(oneAway >= 1) {
                 circle = document.getElementById('circle4');
-                document.getElementById('circle4').setAttribute('transform', 'rotate(' + preDegree + ' 18 18)');
+                circle.setAttribute('transform', 'rotate(' + preDegree + ' 18 18)');
+
+                circle.addEventListener('mouseenter', (event) => {
+                    const mouseX = event.clientX;
+                    const mouseY = event.clientY;
+                    const viewportWidth = window.innerWidth;
+                    const viewportHeight = window.innerHeight;
+                    let textBoxX = mouseX + 10;
+                    let textBoxY = mouseY + 10;
+
+                    if (textBoxX + textBox.offsetWidth > viewportWidth) {
+                        textBoxX = viewportWidth - textBox.offsetWidth - 10;
+                    }
+
+                    if (textBoxY + textBox.offsetHeight > viewportHeight) {
+                        textBoxY = viewportHeight - textBox.offsetHeight - 10;
+                    }
+
+                    textBox.innerHTML = "Previsões E:<br>"+ oneAway+ " jogos";
+                    textBox.style.left = textBoxX + 'px';
+                    textBox.style.top = textBoxY + 'px';
+                    textBox.style.display = 'block';
+                });
+
+                circle.addEventListener('mouseout', () => {
+                    textBox.style.display = 'none'; // Hide the text box when the mouse leaves the circle
+                });
 
                 let percentage = (oneAway / totalgames) * 100; // Calculate percentages
                 let degrees = (percentage / 100) * 360; // Convert percentages to degrees
@@ -651,8 +781,8 @@ switch (file) {
                                     //console.log("+1 JOGO ")
                                     gamesDB.child(f).child(g).once("value", function (snapshot) {
                                         var game = snapshot.val();
-                                        var gameID = "game_" + count;
-                                        var posName = "games_" + p1.charAt(0)+p1.charAt(1);
+                                        var gameID = g /*"game_" + count*/;
+                                        //var posName = "games_" + p1.charAt(0)+p1.charAt(1);
                                         var playerBet = getPlayerBet(game.bets, oppUsename);
                                         // console.log(gameID, ": ", playerBet)
 
@@ -692,7 +822,7 @@ switch (file) {
         break;
     case 'game.html':
         let gameID = localStorage.getItem("game");
-        console.log(gameID);
+        console.log("GAMEID:", gameID);
 
         document.getElementById('table_section').style.display = "none";
         document.getElementById('bar_section').style.display = "none";
@@ -723,10 +853,20 @@ switch (file) {
                                 var betsValues = Object.values(bets);
                                 // console.log(betsKeys);
                                 // console.log(betsValues)
-                                console.log(game.home, game.away)
+                                console.log(game.home, game.away, game.score);
 
-                                createGameWallpaper(game.home, game.away);
+                                //createGameWallpaper(game.home, game.away, game.score);
+                                document.getElementById('home_team').innerHTML = game.home;
+                                document.getElementById('match-info').style.display = "block";
+                                if(game.score != null){
+                                    document.getElementById('match-info').style.marginTop = '40px';
+                                    document.getElementById('match-info').style.marginLeft = '20px';
+                                    document.getElementById('match-info').style.marginRight = '20px';
+                                    document.getElementById('match-info').innerHTML = document.getElementById('match-info').innerHTML + "<br><br>" + game.score;
+                                }
+                                document.getElementById('away_team').innerHTML = game.away;
 
+                                //Create horizontal bargraph
                                 for (let v in betsValues) {
                                     let betScore = betsValues[v];
                                     if(betScore !== "Aposta"){
@@ -745,75 +885,6 @@ switch (file) {
                                     }
                                 }
 
-
-                                //Create x-axis values 
-                                /*let x_axis =  document.getElementById("x-axis");
-                                let x_width = 100 / Object.keys(betsDict).length;
-                                console.log("X-width: ", x_width);
-                                for([key, val] of Object.entries(betsDict)) {
-                                    console.log("DICT: ", key, val);
-
-                                    let li = document.createElement('li');
-                                    li.style.width = x_width+"%";
-                                    let span = document.createElement('span');
-                                    span.innerHTML = key;
-
-                                    li.appendChild(span);
-                                    x_axis.appendChild(li);
-                                  }
-
-                                //Create y-axis values 
-                                console.log("Y-AXIS");
-                                let y_axis =  document.getElementById("y-axis");
-                                let arrVal = Object.values(betsDict);
-                                let maxOFarrVal = Math.max(...arrVal);
-                                console.log(maxOFarrVal);
-                                let max = (maxOFarrVal % 2) === 0 ? maxOFarrVal : maxOFarrVal += 1
-                                console.log(max);
-                                let y_width = 505 / max //505 foi o numero que funcionou para a conta da altura
-                                console.log(y_width);
-
-                                for (let i = max; i >= 0; i-=2) {                                    
-                                    let li_y = document.createElement('li');
-                                    li_y.style.height = y_width+"px";
-                                    let span_y = document.createElement('span');
-                                    span_y.innerHTML = i;
-
-                                    li_y.appendChild(span_y);
-                                    y_axis.appendChild(li_y);
-                                }
-                                
-
-                                //Create bars  
-                                let bars = document.getElementById("bars");
-                                let delay = 0.3;
-                                // let barStat = 1
-                                for([key, val] of Object.entries(betsDict)) {
-                                    //Determine bar height
-                                    let height = (val*100)/max //regra de 3 simples
-
-                                    let bar_group = document.createElement('div');
-                                    bar_group.style.width = (x_width/2)+"%";
-                                    bar_group.style.marginRight = (x_width/4)+"%";
-                                    bar_group.style.marginLeft = (x_width/4)+"%";
-                                    bar_group.classList.add("bar-group");
-
-                                    let bar = document.createElement('div');
-                                    bar.classList.add('bar');
-                                    // bar.classList.add('bar-1');
-                                    bar.classList.add('stat-1');
-                                    bar.style.height = height+"%";
-                                    bar.style.animationDelay= delay+"s";
-                                    bar.style.animationDuration= "0.7s";
-                                    delay+=0.15
-                                   
-                                    bar_group.appendChild(bar);
-                                    bars.appendChild(bar_group);
-
-                                    // //update next bar color
-                                    // barStat = barStat < 9 ? barStat+1 : 1; 
-                                }*/
-
                                 let sumValues = Object.values(betsDict).reduce((sum, val) => sum + val, 0);
                                 let graph = document.getElementById("graph");
                                 for([key, val] of Object.entries(betsDict).sort(([,a],[,b]) => b- a)) {
@@ -824,7 +895,8 @@ switch (file) {
                                     barvalue.classList.add('barvalue');
                                     //console.log(Math.round((val * 100)/sumValues))
                                     let percentage = String.valueOf(Math.round((val * 100)/sumValues));
-                                    barvalue.setAttribute("data-value", percentage)
+                                    console.log("PERCENTAGE:", percentage);
+                                    barvalue.setAttribute("data-value", Math.round((val * 100)/sumValues)+"%")
                                     barvalue.style.width = Math.round((val * 100)/sumValues) + "%";
 
                                     let barlegend = document.createElement('span');
@@ -881,93 +953,9 @@ switch (file) {
             }
             // console.log("game: ", game);
         });
-    case 'profile.html':
-        //check if is any user login in to access this page
-        checkAuthorisation();
-
-        let username = localStorage.getItem("username"); //oppUsename
-
-        //Show opponent name at the top
-        let name = document.getElementById('username');
-        let letters = username.split('');
-        for (let l in letters) {
-            let span = document.createElement('span');
-            //console.log(arrLetters[l])
-            span.innerHTML = letters[l];
-            //console.log(span)
-            name.appendChild(span);
-        }
-
-        //show opponent bets
-        document.getElementById('tables').style.display = "none";
-        document.getElementById('msg').style.display = "none";
-        var usersDB = db.ref("Users/" + username + "/bets");
-        let count1 = 0;
-        newSection("Apostas")
-        usersDB.once("value", function (snapshot) {
-            var bets = snapshot.val();
-            //console.log("Apostas: ", bets);
-            for (let b in bets) {
-                //console.log("gameBet",b);
-                gamesDB.once("value", function (snapshot) {
-                    var fase = snapshot.val();
-                    //console.log("Fase: ", fase);
-                    for (let f in fase) {
-                        //console.log('FASE', f);
-                        gamesDB.child(f).once("value", function (snapshot) {
-                            var games = snapshot.val();
-                            var gamesKeys = Object.keys(games);
-                            //console.log("games: ", games);
-                            for (let g in games) {
-                                //console.log(g, b)
-                                if (g === b) {
-                                    let p1 = f.split(")")[1];
-                                    //newSection(p1);
-                                    //console.log("+1 JOGO ")
-                                    gamesDB.child(f).child(g).once("value", function (snapshot) {
-                                        var game = snapshot.val();
-                                        var gameID = "game_" + count1;
-                                        var posName = "games_" + p1.charAt(0)+p1.charAt(1);
-                                        var playerBet = getPlayerBet(game.bets, oppUsename);
-                                        // console.log(gameID, ": ", playerBet)
-
-                                        newMatch("games_Ap",gameID, game.home, game.away, game.info, game.score, playerBet, games);
-                                        document.getElementById('tables').style.display = "block";
-                                        document.getElementById('msg').style.display = "none";
-                                        //console.log(gameID, home_team, away_team, match_info, match_score, match_bet, matchesArr);
-                                        if (!canBet(new Date(game.info))) {
-                                            count1++;
-                                            newMatch1(gameID, game.home, game.away, game.info, game.score, playerBet, games);
-                                            document.getElementById('tables').style.display = "block";
-                                            document.getElementById('msg').style.display = "none";
-                                        }
-                                        // else {
-                                        //     document.getElementById('msg').style.display = "block";
-                                        // }
-
-                                        // console.log(g, gamesKeys[gamesKeys.length - 1])
-                                        // if(g === gamesKeys[gamesKeys.length - 1]){
-                                        //     console.log("SOU O ULTIMO ", count)
-                                        //     document.getElementById('msg').style.display = "block";
-                                        // }
-                                    });
-                                } else if (g === gamesKeys[gamesKeys.length - 1] && count1 == 0) {
-                                    //console.log("SOU O ULTIMO ", count1)
-                                    document.getElementById('msg').style.display = "block";
-                                }
-                            }
-                        });
-                    }
-                    // console.log("game: ", game);
-                });
-            }
-            document.getElementById('loader').style.display = "none";
-        });
-        break;
     default:
     //TODO
 }
-
 
 
 
@@ -1264,21 +1252,19 @@ function newMatch(posName, gameID, home_team, away_team, match_info, match_score
             }
 
             //Stop Scrolling
-            let x= window.scrollX;
-            let y= window.scrollY;
-            window.onscroll=function(){window.scrollTo(x, y);};
+            document.getElementsByTagName('body')[0].classList.add("freeze");
             //change background opacity
             document.getElementById("empty").classList.add('empty');
             //show game
             document.querySelector(".popup").style.display = "block";
         }
-    } /*else {
+    }else {
         init.onclick = function (event) {
             localStorage.setItem("game", gameID);
             // console.log(localStorage.getItem("username"))
             window.location.href = "game.html";
         }
-    }*/
+    }
 
     let scoreboar = document.createElement('div');
     scoreboar.classList.add("score-board");
@@ -1461,12 +1447,8 @@ function newMatch1(gameID, home_team, away_team, match_info, match_score, match_
     }
 }
 
-function createGameWallpaper(home_team, away_team){
-    /*  <div class="game-wallpaper is-loading">
-                <div id="home-team" class="image home-team"></div>
-                <div id="away-team"class="image away-team"></div>
-                <div id="divider" class="middle-shadow"></div>*/
-    let pageTop = document.getElementById("page_top")
+function createGameWallpaper(home_team, away_team, score){
+    //let pageTop = document.getElementById("page_top")
 
     let init = document.getElementById('wallpaper');
     //let init = document.createElement('div');
@@ -1491,10 +1473,32 @@ function createGameWallpaper(home_team, away_team){
     //init.appendChild(divider);
     //pageTop.appendChild(init);
 
-    init.classList.remove('is-loading');
     divider.style.visibility = "visible";
     homeTeam.style.visibility = "visible";
     awayTeam.style.visibility = "visible";
+    init.classList.remove('is-loading');
+
+
+    //Set game info over wpp
+    /*<div className="home">
+        <div><h1 id="home_team">Qatar</h1></div>
+    </div>
+    <div id="info">
+        <div className="match-info">Nov 20 (Dom) 16:00</div>
+    </div>
+    <div className="away">
+        <div><h1 id="away_team">Equador</h1></div>
+    </div>*/
+    let hometeam = document.getElementById('home_team');
+    hometeam.innerHTML = home_team;
+    let matchinfo = document.getElementById('match-info');
+    matchinfo.style.display = "block";
+    if(score != null){
+        matchinfo.style.marginTop = '60px';
+        matchinfo.innerHTML = matchinfo.innerHTML + "<br><br>" + score;
+    }
+    let awayteam = document.getElementById('away_team');
+    awayteam.innerHTML = away_team;
 }
 //Not beeing used
 function changeBetColor(score, elem_bet) {

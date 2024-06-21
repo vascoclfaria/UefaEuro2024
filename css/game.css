@@ -64,6 +64,11 @@ body{
 }
 
 
+.game-wallpaper .match-info{
+    margin: 20px;
+    display: none;
+}
+
 
 #table_section {
     background-color: #eeeeee;
@@ -108,4 +113,9 @@ td:first-child {
 tr {
     box-shadow: inset 5px 5px 10px #102734,
         inset -2px -2px 7px #00ffff;
+}
+
+
+.game-info .match-info{
+    display: none;
 }

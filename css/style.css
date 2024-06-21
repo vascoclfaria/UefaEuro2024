@@ -3,7 +3,6 @@
 @import url('gamepopup.css');
 @import url('game_wallpaper.css');
 @import url('login.css');
-@import url('profile.css');
 @import url('opponent.css');
 @import url('admin_page.css');
 
@@ -54,7 +53,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    overflow-x: hidden;
+    /*overflow-x: auto;*/
 }
 
 body {
@@ -62,6 +61,11 @@ body {
     height: 100%;
     background-color: #212933;
     animation: fadeIn 0.75s;
+}
+
+.freeze{
+    height: 100%;
+    overflow-y: hidden;
 }
 
 h1, h2 {
@@ -82,9 +86,10 @@ h1, h2 {
 }
 
 .page_top .game-info{
-    position: fixed;
+    position: relative;
     width: 100%;
     height: calc(0.40 * 100vw);
+    max-height: 100%;
     display: flex;
     align-items: center; /* Vertically centers the content */
     justify-content: center; /* Horizontally centers the content */
@@ -109,7 +114,7 @@ h1, h2 {
     background-color: #212933;
     border-radius: 5px 5px 0px 0px;
     box-shadow: 0px -1px 5px 0px #0f0f0f/*rgba(0, 0, 0, 0.18)*/;
-    padding-bottom: 40px;
+   /* padding-bottom: 40px;*/
 }
 
 .page_detail h1, h2 {
@@ -132,6 +137,7 @@ nav {
     /* text-align: center; */
     z-index: 1000;
     overflow: hidden;
+    transition: background-color 0.5s ease;
 }
 
 /*.nav-link {
@@ -158,8 +164,10 @@ nav {
 }
 
 .logo img {
-    height: 3.5rem;
-    width: 3.5rem;
+    height: 3.8rem;
+    width: 3.8rem;
+    /* height: 2rem;
+     width: 4rem;*/
 }
 
 /*Styling Links*/
@@ -384,7 +392,7 @@ nav {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
-    flex-direction: column;
+    /*flex-direction: column;*/ /*To give space to the letters of the name*/
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
@@ -399,7 +407,7 @@ nav {
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
     justify-content: space-between;
-    width: 50%;
+    /*width: 50%; To give space to the letters of the name*/
     margin: 0 auto;
 }
 

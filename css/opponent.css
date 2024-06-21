@@ -4,7 +4,7 @@
 
 .player_progressbar {
     padding: 0px;
-    display: none;
+    /*display: none;*/
 }
 .flex-wrapper {
     display: flex;
@@ -59,22 +59,18 @@
     transition: stroke-width 0.5s ease;
 }
 
-/*.circular-chart.quadruple path:nth-child(2):hover {
-    stroke: #e8630c;
+.circular-chart.quadruple path:nth-child(2):hover {
     stroke-width: 4;
 }
 .circular-chart.quadruple path:nth-child(3):hover {
-    stroke: #6229cf;
     stroke-width: 4;
 }
 .circular-chart.quadruple path:nth-child(4):hover {
-    stroke: #35e635;
     stroke-width: 4;
 }
 .circular-chart.quadruple path:nth-child(5):hover {
-    stroke: #00ffff;
     stroke-width: 4;
-}*/
+}
 
 .percentage {
     fill: #666;
@@ -84,8 +80,22 @@
 }
 
 .page_top .row{
-    margin-top: 30px;
+    /*margin-top: 30px;*/
     /*height: 100%;*/
+    padding-top: 1rem;
+
+}
+
+
+#text-box{
+    position: absolute;
+    background-color: rgba(33, 41, 51, 0.8);
+    color: white;
+    /*border: 1px solid #ccc;*/
+    border-radius: 2px;
+    padding: 10px;
+    display: none;
+    z-index: 1000;
 }
 
 

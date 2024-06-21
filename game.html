@@ -4,7 +4,7 @@
 <head>
     <title>WorldCup Competition</title>
     <!-- Favicon -->
-    <link href="images/favicon.ico" rel="icon">
+    <link href="images/favicon1.ico" rel="icon">
 
     <!-- Basic -->
     <meta charset="utf-8" />
@@ -28,18 +28,15 @@
     <link href="css/responsive.css" rel="stylesheet" />
     <!-- game -->
     <link href="css/game.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
-    <nav>
+    <nav id="navbar">
         <div class="logo">
-            <img src="images/2024_UEFA_Euro_Badge.png" alt="Logo Image">
+            <img src="images/euro2024_onDark.png" alt="Logo Image">
         </div>
-        <!--<div class="hamburger">
-            <div class="line1"></div>
-            <div class="line2"></div>
-            <div class="line3"></div>
-        </div>-->
         <div class="hamburger">
             <svg class="ham hamRotate ham4" viewBox="0 0 100 100" width="80" onclick="this.classList.toggle('active')">
                 <path class="line top" d="m 70,33 h -40 c 0,0 -8.5,-0.149796 -8.5,8.5 0,8.649796 8.5,8.5 8.5,8.5 h 20 v -20" />
@@ -47,11 +44,6 @@
                 <path class="line bottom" d="m 30,67 h 40 c 0,0 8.5,0.149796 8.5,-8.5 0,-8.649796 -8.5,-8.5 -8.5,-8.5 h -20 v 20" />
             </svg>
         </div>
-        <!--<ul class="nav-links">
-            <li><a href="home.html">Jogos</a></li>
-            <li><a href="classification.html">Pontuações</a></li>
-            <li><a href="rules.html">Regras</a></li>
-        </ul>-->
         <div class="overlay" id="overlay">
             <div class="overlay-menu">
                 <ul>
@@ -70,24 +62,23 @@
 
     <section class="page_body">
         <section id="page_top" class="page_top">
-            <div id="wallpaper" class="game-wallpaper is-loading">
+            <!--<div id="wallpaper" class="game-wallpaper is-loading">
+                <div class="game-info">
+                    <div class="home"><div><h1 id="home_team"></h1></div></div>
+                    <div id="info"><div id="match-info" class="match-info" style="">VS</div></div>
+                    <div class="away"><div><h1 id="away_team"></h1></div></div>
+                </div>
                 <div id="home-team" class="image home-team"></div>
                 <div id="away-team"class="image away-team"></div>
                 <div id="divider" class="middle-shadow"></div>
-            </div>
+            </div>--->
             <div class="game-info">
-                <div class="home">
-                    <div><h1 id="home_team">Qatar</h1></div>
-                </div>
-                <div id="info">
-                    <div class="match-info">Nov 20 (Dom) 16:00</div>
-                </div>
-                <div class="away">
-                    <div><h1 id="away_team">Equador</h1></div>
-                </div>
+                <div class="home"><div><h1 id="home_team"></h1></div></div>
+                <div id="info"><div id="match-info" class="match-info" style="">VS</div></div>
+                <div class="away"><div><h1 id="away_team"></h1></div></div>
             </div>
         </section>
-        <section class="page_bottom">
+        <section id="page_bottom" class="page_bottom">
             <div id="bar_section">
                 <div class="barGraph">
                     <ul id="graph" class="graph">
@@ -108,46 +99,47 @@
                 <div class="circle three"></div>
             </section>
 
+            <footer class="footer">
+                <div class="footer-left col-md-4 col-sm-6">
+                    <p class="about">
+                        <span> Sobre nós </span>
+                        Este site é dedicado àqueles que atualmente perdem dinheiro em sites de apostas tradicionais. A nossa
+                        esperança é fornecer-vos as ferramentas necessárias para pararem de perder o vosso dinheiro em apostas
+                        sem perder a adrenalina de prever os resultados deste mundial, numa competição entre amigos. Boa sorte a
+                        todos os participantes e que vença o mais sortudo.
+                    </p>
+                </div>
+                <div class="footer-center col-md-4 col-sm-6">
+                    <div>
+                        <!--<i class="fa fa-map-marker"></i>-->
+                        <p><span> Av. da Igreja, 14A </span> Lisboa, Portugal</p>
+                    </div>
+                    <div>
+                        <!--<i class="fa fa-phone"></i>-->
+                        <p> (+351) 218 461 081</p>
+                    </div>
+                    <div>
+                        <!--<i class="fa fa-envelope"></i>-->
+                        <p><a href="https://s3.amazonaws.com/thumbnails.illustrationsource.com/huge.0.3917.JPG">
+                            amigos.que@mtudo.pt </a></p>
+                    </div>
+                </div>
+                <div class="footer-right col-md-4 col-sm-6">
+                    <h2> World Cup<span> Competition</span></h2>
+                    <p class="menu">
+                        <a href="home.html">Jogos</a> |
+                        <a href="classification.html">Pontuações</a> |
+                        <a href="rules.html">Regras</a> |
+                        <a href="#" onclick="logOut();">Sair</a>
+                    </p>
+                    <p class="name"> &copy; 2022 All Rights Reserved By VCLF INC.</p>
+                </div>
+            </footer>
         </section>
     </section>
 
 
-    <footer class="footer">
-        <div class="footer-left col-md-4 col-sm-6">
-            <p class="about">
-                <span> Sobre nós </span>
-                Este site é dedicado àqueles que atualmente perdem dinheiro em sites de apostas tradicionais. A nossa
-                esperança é fornecer-vos as ferramentas necessárias para pararem de perder o vosso dinheiro em apostas
-                sem perder a adrenalina de prever os resultados deste mundial, numa competição entre amigos. Boa sorte a
-                todos os participantes e que vença o mais sortudo.
-            </p>
-        </div>
-        <div class="footer-center col-md-4 col-sm-6">
-            <div>
-                <i class="fa fa-map-marker"></i>
-                <p><span> Av. da Igreja, 14A </span> Lisboa, Portugal</p>
-            </div>
-            <div>
-                <i class="fa fa-phone"></i>
-                <p> (+351) 218 461 081</p>
-            </div>
-            <div>
-                <i class="fa fa-envelope"></i>
-                <p><a href="https://s3.amazonaws.com/thumbnails.illustrationsource.com/huge.0.3917.JPG">
-                        amigos.que@mtudo.pt </a></p>
-            </div>
-        </div>
-        <div class="footer-right col-md-4 col-sm-6">
-            <h2> World Cup<span> Competition</span></h2>
-            <p class="menu">
-                <a href="home.html">Jogos</a> |
-                <a href="classification.html">Pontuações</a> |
-                <a href="rules.html">Regras</a> |
-                <a href="#" onclick="logOut();">Sair</a>
-            </p>
-            <p class="name"> &copy; 2022 All Rights Reserved By VCLF INC.</p>
-        </div>
-    </footer>
+
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
     <script src="js/firebase.js"></script>

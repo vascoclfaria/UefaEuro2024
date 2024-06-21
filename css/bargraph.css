@@ -39,7 +39,7 @@
     display: block;
 }
 #bar_section .barGraph .graph .barvalue {
-    background-color: #00ffff;
+    background-color: #8f3b76;/*#00ffff;*/
     border-radius: 2px;
     cursor: pointer;
     margin-bottom: 10px;
@@ -60,11 +60,11 @@
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
     transition: all 0.5s ease;
-    background: #428D92;
+    background: #6e0f2f;/*#428D92;*/
 }
 
 #bar_section .barGraph .graph .barvalue:hover {
-    background: #428D92;
+    background: #6e0f2f;
 }
 #bar_section .barGraph .graph .barvalue:last-child {
     margin-bottom: 0;
